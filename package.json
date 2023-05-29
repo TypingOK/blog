@@ -6,16 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma:generate": "yarn pnpify prisma generate",
+    "prisma:push": "yarn pnpify prisma db push"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
+    "@next-auth/prisma-adapter": "^1.0.6",
+    "@prisma/client": "^4.14.1",
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
+    "@yarnpkg/pnpify": "^4.0.0-rc.44",
+    "add": "^2.0.6",
     "autoprefixer": "10.4.14",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
+    "global": "^4.4.0",
     "next": "13.4.3",
     "next-auth": "^4.22.1",
     "postcss": "8.4.23",
@@ -24,5 +31,8 @@
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   },
-  "packageManager": "yarn@3.5.1"
+  "packageManager": "yarn@3.5.1",
+  "devDependencies": {
+    "prisma": "^4.14.1"
+  }
 }

@@ -41,3 +41,9 @@ next-env.d.ts
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.vercel
+
+#prisma
+prisma/*
+!prisma/schema.prisma
+
