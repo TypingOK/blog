@@ -10,6 +10,7 @@ const Header = () => {
         <Link href={"/info"}>Info</Link>
         <Link className="ml-4" href={"/develope"}>Develope</Link>
       </nav>
+      <div></div>
     </div>
   );
 };
