@@ -1,21 +1,12 @@
-"use client";
-import "@toast-ui/editor/dist/toastui-editor.css";
-import { Editor } from "@toast-ui/react-editor";
-import { useRef } from "react";
+import dynamic from "next/dynamic";
+
+const ToastEditor = dynamic(
+  () => import("../../src/component/Editor/ToastEditor"),
+  { ssr: false }
+);
 
 const EditorComponent = () => {
-  const editorRef = useRef<any>("");
-
-  return (
-    <Editor
-      ref={editorRef}
-      initialValue="hello react editor world!"
-      previewStyle="vertical"
-      height="600px"
-      initialEditType="markdown"
-      useCommandShortcut={true}
-    />
-  );
+  return <ToastEditor />;
 };
 
 export default EditorComponent;
