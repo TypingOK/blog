@@ -20,6 +20,7 @@ model Post {
   published Boolean @default(true)
   createdAt DateTime @default(now()) @map(name:"created_at")
   updatedAt DateTime @updatedAt @map(name:"updated_at")
+  tag       String[]
   author User @relation(fields:[authorId],references:[id])
   authorId String
 }

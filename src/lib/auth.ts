@@ -11,5 +11,14 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
   ],
+  callbacks: {
+    async signIn({ user }) {
+      if (user.email === (process.env.LOGIN_EMAIL as string)) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
   adapter: PrismaAdapter(prisma),
 };

@@ -8,7 +8,7 @@ export const LoginButton = () => {
       <button
         onClick={() => {
           signIn("github", {
-            callbackUrl: "http://localhost:3000/auth/login/github",
+            callbackUrl: "http://localhost:3000/session_test",
           });
         }}
       >
