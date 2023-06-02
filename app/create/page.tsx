@@ -1,12 +1,7 @@
-import dynamic from "next/dynamic";
-
-const ToastEditor = dynamic(
-  () => import("../../src/component/Editor/ToastEditor"),
-  { ssr: false }
-);
+import WritePost from "@/src/component/Editor/WritePost";
 
 const EditorComponent = () => {
-  return <ToastEditor />;
+  return <WritePost />;
 };
 
 export default EditorComponent;

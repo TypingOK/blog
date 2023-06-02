@@ -1,21 +1,27 @@
 "use client";
 
 import "@toast-ui/editor/dist/toastui-editor.css";
+import "tui-color-picker/dist/tui-color-picker.css";
+import "@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css";
+import colorSyntax from "@toast-ui/editor-plugin-color-syntax";
 import { Editor } from "@toast-ui/react-editor";
-import { useRef } from "react";
 
-const ToastEditor = () => {
-  const editorRef = useRef<any>("");
+const ToastEditor = ({editorRef}:{editorRef:React.Ref<any>}) => {
+  
 
   return (
-    <Editor
-      ref={editorRef}
-      initialValue="hello react editor world!"
-      previewStyle="vertical"
-      height="600px"
-      initialEditType="markdown"
-      useCommandShortcut={true}
-    />
+    <div>
+      <Editor
+        ref={editorRef}
+        initialValue=""
+        previewStyle="vertical"
+        height="600px"
+        initialEditType="markdown"
+        useCommandShortcut={true}
+        plugins={[colorSyntax]}
+        // language="ko-KR"
+      />
+    </div>
   );
 };
 
