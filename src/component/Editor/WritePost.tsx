@@ -2,14 +2,31 @@
 import { useEffect, useRef, useState } from "react";
 import type { ChangeEvent } from "react";
 import dynamic from "next/dynamic";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+
+interface postType {
+  title: string;
+  content: string;
+  tag: string[];
+  email: string;
+}
 
 const ToastEditor = dynamic(() => import("../Editor/ToastEditor"), {
   ssr: false,
 });
 
+const fetcher = async (body: postType) => {
+  const response = await axios.post("/api/create", body, {
+    headers: { "Content-Type": "application/json" },
+  });
+  return response;
+};
+
 const WritePost = () => {
+  const router = useRouter();
   const [title, setTitle] = useState<String>("");
-  const [content, setContent] = useState<String>("");
+
   const [tag, setTag] = useState<String[]>([]);
 
   const editorRef = useRef<any>("");
@@ -29,27 +46,20 @@ const WritePost = () => {
       tagRef.current.value = "";
     }
   }, [tag]);
-  const onClick = () => {
+  const onClick = async () => {
     if (editorRef && editorRef.current) {
-      setContent(editorRef.current.getInstance().getMarkdown());
-    }
-  };
-
-  useEffect(() => {
-    if (
-      title &&
-      title.split(" ").length > 0 &&
-      content &&
-      content.split(" ").length > 0
-    ) {
       const body = {
         title,
-        content,
+        content: editorRef.current.getInstance().getMarkdown() as string,
         tag,
-      };
-        
+      } as postType;
+      const result = await fetcher(body);
+      console.log(result);
+      if (result.status === 200 && result.statusText === "OK") {
+        router.push("/");
+      }
     }
-  });
+  };
 
   return (
     <div className="w-full flex flex-col items-center">

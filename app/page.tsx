@@ -12,15 +12,26 @@ const getPost = async () => {
   });
 
   return {
-    props: { feed },
-    revalidate: 10,
+    feed,
   };
 };
 
 const Home = async () => {
-  const data = await getPost();
-  console.log(data);
-  return <div>안녕하세요</div>;
+  const { feed } = await getPost();
+  console.log(feed);
+  return (
+    <div>
+      안녕하세요
+      <div>
+        {feed.map((e, i) => (
+          <div key={i} className="bg-slate-600 mb-5">
+            <div>{e.title}</div>
+            <div>{e.content}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Home;
