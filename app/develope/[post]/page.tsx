@@ -14,9 +14,8 @@ const getPostDetail = async ({ id }: { id: string }) => {
       },
     },
   });
-  if (feed !== null && feed !== undefined) {
-    const converter = await remark().use(html).process(feed.content);
-    const content = converter.toString();
+  if (feed !== null && feed !== undefined && feed.content) {
+    const content = (await remark().use(html).process(feed.content)).toString();
     const { content: _, ...rest } = feed;
     return {
       ...rest,
