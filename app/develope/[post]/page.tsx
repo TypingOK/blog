@@ -4,7 +4,7 @@ import html from "remark-html";
 import prisma from "@lib/prisma";
 
 const getPostDetail = async ({ id }: { id: string }) => {
-  const feed = await prisma.Post.findFirst({
+  const feed = await prisma.post.findFirst({
     where: {
       AND: [{ id: parseInt(id) }, { published: true }],
     },
