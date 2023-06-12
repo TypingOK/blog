@@ -24,7 +24,7 @@ export default function RootLayout({
               <div className={"border-b-2"}>
                 <Header />
               </div>
-              <div>{children}</div>
+              <div className="w-full h-full">{children}</div>
             </div>
           </section>
         </Provider>
