@@ -9,8 +9,8 @@ const Header = () => {
       </Link>
       <nav className="ml-auto">
         <Link href={"/info"}>Info</Link>
-        <Link className="ml-4" href={"/develope"}>
-          Develope
+        <Link className="ml-4" href={"/develop"}>
+          Develop
         </Link>
       </nav>
       <nav className="ml-8">

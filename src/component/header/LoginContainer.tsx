@@ -2,7 +2,6 @@
 import { signOut, useSession } from "next-auth/react";
 const LoginContainer = () => {
   const { data, status } = useSession();
-  console.log(data);
   if (status == "authenticated") {
     return (
       <div

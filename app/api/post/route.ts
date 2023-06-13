@@ -20,6 +20,7 @@ export async function DELETE(request: Request) {
         id: parseInt(id),
       },
     });
+
     if (result) {
       return NextResponse.json({
         data: "성공",
@@ -27,8 +28,8 @@ export async function DELETE(request: Request) {
     }
   } else {
     return NextResponse.json({
-      data:"인증되지 않은 사용자입니다."
-    })
+      data: "인증되지 않은 사용자입니다.",
+    });
   }
 }
 
