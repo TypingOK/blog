@@ -1,20 +1,36 @@
 import { listFetcher } from "@/src/common/postListFetcher";
+import prisma from "@/src/lib/prisma";
 
 const getPost = async () => {
-  const response = await listFetcher({ page: 1, perPage: 10 });
+  const posts = await prisma.post.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+    where: {
+      published: true,
+    },
+    select: {
+      id: true,
+      title: true,
+      createdAt: true,
+    },
+    skip: 0,
+    take: 10,
+  });
+  console.log(posts);
 
-  return response;
+  return { posts };
 };
 
 const Home = async () => {
-  const feed = await getPost();
-  console.log(feed);
+  const { posts } = await getPost();
+  console.log(posts);
   return (
     <div>
       안녕하세요
       <div>
-        {feed &&
-          feed.map((e: { id: number; title: string; createdAt: Date }) => (
+        {posts &&
+          posts.map((e: { id: number; title: string; createdAt: Date }) => (
             <div key={e.id} className="bg-slate-600 mb-5">
               <div>{e.title}</div>
             </div>
