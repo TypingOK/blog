@@ -13,5 +13,6 @@ export const listFetcher = async ({
   const posts = await axios(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/develop?${params.toString()}`
   );
+  console.log(posts);
   return posts;
 };
