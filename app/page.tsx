@@ -13,11 +13,12 @@ const Home = async () => {
     <div>
       안녕하세요
       <div>
-        {feed.map((e: { id: number; title: string; createdAt: Date }) => (
-          <div key={e.id} className="bg-slate-600 mb-5">
-            <div>{e.title}</div>
-          </div>
-        ))}
+        {feed &&
+          feed.map((e: { id: number; title: string; createdAt: Date }) => (
+            <div key={e.id} className="bg-slate-600 mb-5">
+              <div>{e.title}</div>
+            </div>
+          ))}
       </div>
     </div>
   );
