@@ -1,18 +1,9 @@
-import axios from "axios";
+import { listFetcher } from "@/src/common/postListFetcher";
 
 const getPost = async () => {
-  const params = new URLSearchParams();
-  params.append("page", "1");
-  params.append("perPage", "10");
-  const posts = await axios(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/develop?${params.toString()}`
-  );
-  console.log("서버측 데이터?", posts.data);
-  if (posts.status) {
-    return posts.data;
-  } else {
-    return undefined;
-  }
+  const response = await listFetcher({ page: 1, perPage: 10 });
+
+  return response;
 };
 
 const Home = async () => {
