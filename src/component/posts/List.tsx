@@ -25,7 +25,7 @@ const PostList = () => {
     try {
       const response = await listFetcher({ page, perPage });
       console.log(response);
-      const newPosts = response.data;
+      const newPosts = response;
       setPosts((prev) => [...prev, ...newPosts]);
       setPage((prev) => {
         return prev + 1;

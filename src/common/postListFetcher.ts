@@ -13,6 +13,6 @@ export const listFetcher = async ({
   const posts = await axios(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/develop?${params.toString()}`
   );
-  console.log(posts);
-  return posts;
+  console.log("서버측 데이터?", posts.data);
+  return posts.data;
 };

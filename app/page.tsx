@@ -3,7 +3,7 @@ import { listFetcher } from "@/src/common/postListFetcher";
 const getPost = async () => {
   const response = await listFetcher({ page: 1, perPage: 10 });
 
-  return response.data;
+  return response;
 };
 
 const Home = async () => {
