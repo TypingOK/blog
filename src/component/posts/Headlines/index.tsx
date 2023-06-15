@@ -25,7 +25,7 @@ const getPost = async () => {
 };
 
 const PostHeadlines = () => {
-  const posts = use(listFetcher({ page: 1, perPage: 10 }));
+  const { posts } = use(getPost());
   console.log(posts);
   return (
     <div>
