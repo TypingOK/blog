@@ -27,7 +27,7 @@ const Post = async ({ params: { post } }: { params: { post: string } }) => {
         <h1 className="text-3xl font-extrabold">{data.title}</h1>
         <div className="w-full flex text-sm mt-5">
           <div className="mb-2">
-            <DeleteButton post={post} />
+            <DeleteButton post={post} author={data.author.name} />
           </div>
           <div className="ml-auto mr-2">작성시간 {create[0]}</div>
           <div>
@@ -37,6 +37,7 @@ const Post = async ({ params: { post } }: { params: { post: string } }) => {
           </div>
         </div>
         {/* <div>{data.tag}</div> */}
+        <div className={`border w-full border-black`}></div>
         <div
           className="w-full h-full mt-5"
           dangerouslySetInnerHTML={{ __html: data.content }}

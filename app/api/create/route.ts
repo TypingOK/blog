@@ -8,13 +8,18 @@ export async function POST(request: Request) {
 
   const session = await getServerSession(authOptions);
 
-  const result = await prisma.post.create({
-    data: {
-      title: body.title,
-      content: body.content,
-      tag: body.tag,
-      author: { connect: { email: session?.user?.email as string } },
-    },
-  });
-  return NextResponse.json(result);
+  console.log(session);
+  if (session !== null && session.user?.email === process.env.LOGIN_EMAIL) {
+    const result = await prisma.post.create({
+      data: {
+        title: body.title,
+        content: body.content,
+        tag: body.tag,
+        author: { connect: { email: session?.user?.email as string } },
+      },
+    });
+    return NextResponse.json(result);
+  } else {
+    return NextResponse.json({ data: "error!!" });
+  }
 }

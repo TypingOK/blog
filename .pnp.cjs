@@ -44,6 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["browser-image-compression", "npm:2.0.2"],\
             ["eslint", "npm:8.41.0"],\
             ["eslint-config-next", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:13.4.3"],\
+            ["framer-motion", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:10.12.16"],\
             ["global", "npm:4.4.0"],\
             ["next", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:13.4.3"],\
             ["next-auth", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:4.22.1"],\
@@ -94,6 +95,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@babel/runtime", "npm:7.22.3"],\
             ["regenerator-runtime", "npm:0.13.11"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@emotion/is-prop-valid", [\
+        ["npm:0.8.8", {\
+          "packageLocation": "./.yarn/cache/@emotion-is-prop-valid-npm-0.8.8-261a0f2426-bb7ec6d48c.zip/node_modules/@emotion/is-prop-valid/",\
+          "packageDependencies": [\
+            ["@emotion/is-prop-valid", "npm:0.8.8"],\
+            ["@emotion/memoize", "npm:0.7.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@emotion/memoize", [\
+        ["npm:0.7.4", {\
+          "packageLocation": "./.yarn/cache/@emotion-memoize-npm-0.7.4-5648cf11b8-4e3920d4ec.zip/node_modules/@emotion/memoize/",\
+          "packageDependencies": [\
+            ["@emotion/memoize", "npm:0.7.4"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1451,6 +1471,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["browser-image-compression", "npm:2.0.2"],\
             ["eslint", "npm:8.41.0"],\
             ["eslint-config-next", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:13.4.3"],\
+            ["framer-motion", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:10.12.16"],\
             ["global", "npm:4.4.0"],\
             ["next", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:13.4.3"],\
             ["next-auth", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:4.22.1"],\
@@ -2969,6 +2990,34 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/fraction.js-npm-4.2.0-28efe4afc7-8c76a6e21d.zip/node_modules/fraction.js/",\
           "packageDependencies": [\
             ["fraction.js", "npm:4.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["framer-motion", [\
+        ["npm:10.12.16", {\
+          "packageLocation": "./.yarn/cache/framer-motion-npm-10.12.16-15fa41631a-0ba346fd6e.zip/node_modules/framer-motion/",\
+          "packageDependencies": [\
+            ["framer-motion", "npm:10.12.16"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:10.12.16", {\
+          "packageLocation": "./.yarn/__virtual__/framer-motion-virtual-3475f8fed3/0/cache/framer-motion-npm-10.12.16-15fa41631a-0ba346fd6e.zip/node_modules/framer-motion/",\
+          "packageDependencies": [\
+            ["framer-motion", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:10.12.16"],\
+            ["@emotion/is-prop-valid", "npm:0.8.8"],\
+            ["@types/react", "npm:18.2.6"],\
+            ["@types/react-dom", "npm:18.2.4"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:18.2.0"],\
+            ["tslib", "npm:2.5.2"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
