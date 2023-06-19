@@ -2,6 +2,7 @@ import { listFetcher } from "@/src/common/postListFetcher";
 import prisma from "@/src/lib/prisma";
 import Link from "next/link";
 import { use } from "react";
+import Headline from "./Headline";
 
 const getPost = async () => {
   const posts = await prisma.post.findMany({
@@ -28,14 +29,10 @@ const PostHeadlines = () => {
   const { posts } = use(getPost());
   console.log(posts);
   return (
-    <div>
+    <div className="w-full h-full flex flex-wrap ">
       {posts &&
         posts.map((e: { id: number; title: string; createdAt: Date }) => (
-          <div key={e.id} className="bg-slate-600 mb-5">
-            <div>
-              <Link href={`/develop/${e.id}`}>{e.title}</Link>
-            </div>
-          </div>
+          <Headline post={e} key={e.id} />
         ))}
     </div>
   );

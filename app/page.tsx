@@ -3,8 +3,9 @@ import PostHeadlines from "@/src/component/posts/Headlines";
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-full h-full">
       <InfoBanner />
+      <h1 className="font-bold text-3xl">최신 글</h1>
       <PostHeadlines />
     </div>
   );

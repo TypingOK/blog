@@ -2,6 +2,7 @@
 import { listFetcher } from "@/src/common/postListFetcher";
 import useIntersectionObserver from "@/src/hooks/useIntersectionObserver";
 import { PostsType } from "@/src/types/types";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -40,19 +41,18 @@ const PostList = () => {
 
   return (
     <div>
-      {posts.map((post) => (
-        <div key={post.id}>
-          <h2>
-            <button
-              onClick={() => {
-                router.push(`/develop/${post.id}`);
-              }}
-            >
-              {post.title}
-            </button>
-          </h2>
-        </div>
-      ))}
+      {posts &&
+        posts.map((e: { id: number; title: string; createdAt: Date }) => (
+          <Link
+            href={`/develop/${e.id}`}
+            key={e.id}
+            className="border-2 rounded-xl mb-5 flex-1 m-2 shadow-xl h-64 flex justify-center"
+          >
+            <div className="mt-auto text-xl font-bold">
+              <div>{e.title}</div>
+            </div>
+          </Link>
+        ))}
       <div ref={targetRef}>
         {isIntersecting && !isNextPage ? <p> 불러오는 중.... </p> : null}
       </div>
