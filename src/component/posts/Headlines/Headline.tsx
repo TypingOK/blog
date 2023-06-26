@@ -1,11 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 const Headline = ({
   post,
 }: {
-  post: { id: number; title: string; createdAt: Date };
+  post: { id: number; title: string; createdAt: Date; thumbnail: string };
 }) => {
   const date = post.createdAt;
 
@@ -28,6 +29,7 @@ const Headline = ({
         href={`/develop/${post.id}`}
         className="w-full h-full flex justify-center"
       >
+        <Image src={post.thumbnail} width={100} height={100} alt="썸네일" />
         <div className="mt-auto ">
           <div className="text-xl font-bold">{post.title}</div>
         </div>

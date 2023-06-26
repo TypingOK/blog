@@ -14,11 +14,13 @@ export async function GET(request: Request) {
       },
       where: {
         published: true,
+        category: "develope",
       },
       select: {
         id: true,
         title: true,
         createdAt: true,
+        thumbnail: true,
       },
       skip: (Number(page) - 1) * Number(perPage),
       take: Number(perPage),

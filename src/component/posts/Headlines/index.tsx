@@ -11,11 +11,13 @@ const getPost = async () => {
     },
     where: {
       published: true,
+      // category: "develope",
     },
     select: {
       id: true,
       title: true,
       createdAt: true,
+      thumbnail: true,
     },
     skip: 0,
     take: 10,
@@ -31,7 +33,7 @@ const PostHeadlines = () => {
   return (
     <div className="w-full h-full flex flex-wrap ">
       {posts &&
-        posts.map((e: { id: number; title: string; createdAt: Date }) => (
+        posts.map((e: { id: number; title: string; createdAt: Date; thumbnail:string }) => (
           <Headline post={e} key={e.id} />
         ))}
     </div>

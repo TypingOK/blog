@@ -23,6 +23,8 @@ model Post {
   tag       String[]
   author User @relation(fields:[authorId],references:[id])
   authorId String
+  category String
+  thumbnail String
 }
 
 model User {

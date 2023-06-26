@@ -15,6 +15,8 @@ export async function POST(request: Request) {
         title: body.title,
         content: body.content,
         tag: body.tag,
+        category: body.category,
+        thumbnail: body.thumbnail,
         author: { connect: { email: session?.user?.email as string } },
       },
     });
