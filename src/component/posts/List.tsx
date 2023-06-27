@@ -5,6 +5,7 @@ import { PostsType } from "@/src/types/types";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Headline from "./Headlines/Headline";
 
 const PostList = () => {
   const [page, setPage] = useState(1);
@@ -15,6 +16,7 @@ const PostList = () => {
     threshold: 0.5,
   });
   const [isNextPage, setIsNextPage] = useState(false);
+  console.log(posts);
 
   useEffect(() => {
     if (isIntersecting && !isNextPage) {
@@ -42,17 +44,25 @@ const PostList = () => {
   return (
     <div>
       {posts &&
-        posts.map((e: { id: number; title: string; createdAt: Date }) => (
-          <Link
-            href={`/develop/${e.id}`}
-            key={e.id}
-            className="border-2 rounded-xl mb-5 flex-1 m-2 shadow-xl h-64 flex justify-center"
-          >
-            <div className="mt-auto text-xl font-bold">
-              <div>{e.title}</div>
-            </div>
-          </Link>
-        ))}
+        posts.map(
+          (e: {
+            id: number;
+            title: string;
+            createdAt: Date;
+            thumbnail: string;
+          }) => (
+            // <Link
+            //   href={`/develop/${e.id}`}
+            //   key={e.id}
+            //   className="border-2 rounded-xl mb-5 flex-1 m-2 shadow-xl h-64 flex justify-center"
+            // >
+            //   <div className="mt-auto text-xl font-bold">
+            //     <div>{e.title}</div>
+            //   </div>
+            // </Link>
+            <Headline post={e} key={e.id} />
+          )
+        )}
       <div ref={targetRef}>
         {isIntersecting && !isNextPage ? <p> 불러오는 중.... </p> : null}
       </div>

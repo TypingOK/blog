@@ -2,7 +2,7 @@ import PostList from "@/src/component/posts/List";
 
 const DevelopPage = () => {
   return (
-    <div>
+    <div className="w-full h-full">
       <PostList />
     </div>
   );
