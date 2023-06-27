@@ -5,31 +5,43 @@ import { remark } from "remark";
 import html from "remark-html";
 
 const fetcher = async ({ id }: { id: string }) => {
-  let post = {
-    id: -1,
-    title: "",
-    published: false,
-    createdAt: "2023-06-26T14:57:39.996Z",
-    updatedAt: "2023-06-26T14:57:39.996Z",
-    tag: [],
-    authorId: "",
-    category: "",
-    thumbnail: "",
-    content: "",
-    author: {
-      name: "",
+  const post = await prisma.post.findFirst({
+    where: {
+      AND: [{ id: parseInt(id) }, { published: true }],
     },
-  };
-  await fetch(
-    process.env.NEXT_BACKEND +
-      "/api/post?" +
-      new URLSearchParams({
-        id,
-      })
-  )
-    .then((res) => res.json())
-    .then((e) => (post = { ...e }));
-  return { data: post };
+    include: {
+      author: {
+        select: { name: true },
+      },
+    },
+  });
+
+  if (post !== null && post !== undefined && post.content) {
+    const content = (await remark().use(html).process(post.content)).toString();
+    const { content: _, ...rest } = post;
+    const result = {
+      ...rest,
+      content,
+      id,
+    };
+
+    return { data: result };
+  } else {
+    return {
+      id: -1,
+      title: "",
+      published: false,
+      createdAt: "2023-06-26T14:57:39.996Z",
+      updatedAt: "2023-06-26T14:57:39.996Z",
+      tag: [],
+      authorId: "",
+      category: "",
+      thumbnail: "",
+      author: {
+        name: "",
+      },
+    };
+  }
 };
 
 const Post = async ({ params: { post } }: { params: { post: string } }) => {
