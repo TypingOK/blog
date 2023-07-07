@@ -20,7 +20,7 @@ const getPost = async () => {
       thumbnail: true,
     },
     skip: 0,
-    take: 10,
+    take: 5,
   });
   console.log(posts);
 
@@ -29,15 +29,22 @@ const getPost = async () => {
 
 const PostHeadlines = () => {
   const { posts } = use(getPost());
-  console.log(posts);
+  // console.log(posts);
   return (
     <div className="w-full h-full flex flex-wrap ">
       {posts &&
-        posts.map((e: { id: number; title: string; createdAt: Date; thumbnail:string }) => (
-          <Headline post={e} key={e.id} />
-        ))}
+        posts.map(
+          (e: {
+            id: number;
+            title: string;
+            createdAt: Date;
+            thumbnail: string;
+          }) => <Headline post={e} key={e.id} />
+        )}
     </div>
   );
 };
 
 export default PostHeadlines;
+
+export const revalidate = 3600 * 12;

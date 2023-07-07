@@ -3,6 +3,7 @@ import DeleteButton from "./DeleteButton";
 import prisma from "@/src/lib/prisma";
 import { remark } from "remark";
 import html from "remark-html";
+import styles from "./page.module.css";
 
 const fetcher = async ({ id }: { id: string }) => {
   const post = await prisma.post.findFirst({
@@ -18,6 +19,7 @@ const fetcher = async ({ id }: { id: string }) => {
 
   if (post !== null && post !== undefined && post.content) {
     const content = (await remark().use(html).process(post.content)).toString();
+    // console.log(content);
     const { content: _, ...rest } = post;
     const result = {
       ...rest,
@@ -46,7 +48,7 @@ const fetcher = async ({ id }: { id: string }) => {
 
 const Post = async ({ params: { post } }: { params: { post: string } }) => {
   const { data } = await fetcher({ id: post });
-
+  console.log(data?.content);
   if (data && data.id !== undefined) {
     const create = data.createdAt
       ? data.createdAt.toString().split("T")
@@ -68,10 +70,10 @@ const Post = async ({ params: { post } }: { params: { post: string } }) => {
         </div>
         {/* <div>{data.tag}</div> */}
         <div className={`border w-full border-black`}></div>
-        <div
-          className="w-full h-full mt-5"
+        <article
+          className="w-full h-full mt-5 prose"
           dangerouslySetInnerHTML={{ __html: data.content }}
-        ></div>
+        ></article>
       </div>
     );
   } else {
