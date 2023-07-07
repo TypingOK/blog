@@ -6,7 +6,6 @@ export async function GET(request: Request) {
   try {
     const page = searchParams.get("page");
     const perPage = searchParams.get("perPage");
-    console.log(page, perPage);
 
     const posts = await prisma.post.findMany({
       orderBy: {
@@ -25,7 +24,7 @@ export async function GET(request: Request) {
       skip: (Number(page) - 1) * Number(perPage),
       take: Number(perPage),
     });
-    console.log(posts);
+
     if (posts) {
       return NextResponse.json(posts);
     } else {

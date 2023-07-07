@@ -1,71 +1,59 @@
 "use client";
-import { listFetcher } from "@/src/common/postListFetcher";
+import { fetcher } from "@/src/common/postListFetcher";
 import useIntersectionObserver from "@/src/hooks/useIntersectionObserver";
 import { PostsType } from "@/src/types/types";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Headline from "./Headlines/Headline";
+import useSWRInfinite from "swr/infinite";
+
+// const getKey = (pageIndex: number, previousPageData: PostsType) => {
+//   const params = new URLSearchParams();
+//   params.append("page", pageIndex.toString());
+//   params.append("perPage", "10");
+//   if (previousPageData && !previousPageData.length) return null; // 끝에 도달
+//   return `${
+//     process.env.NEXT_PUBLIC_BACKEND_URL
+//   }/api/develop?${params.toString()}`;
+// };
 
 const PostList = () => {
-  const [page, setPage] = useState(1);
-  const [perPage] = useState(10);
-  const router = useRouter();
-  const [posts, setPosts] = useState<PostsType>([]);
+  const { data, isLoading, size, setSize } = useSWRInfinite((index) => {
+    const page = index + 1; // 페이지 인덱스는 0부터 시작하므로 1을 더해줍니다.
+    const perPage = 10; // 페이지당 항목 수를 설정합니다. 원하는 값으로 변경하세요.
+    return { page, perPage };
+  }, fetcher);
+
   const [targetRef, isIntersecting] = useIntersectionObserver({
     threshold: 0.5,
   });
-  const [isNextPage, setIsNextPage] = useState(false);
-  console.log(posts);
 
+  const hasMoreData: boolean = !!data && data[data.length - 1].length === 10;
   useEffect(() => {
-    if (isIntersecting && !isNextPage) {
-      loadMorePosts();
+    if (isIntersecting && !isLoading && hasMoreData) {
+      setSize(size + 1);
     }
-  }, [isIntersecting, isNextPage]);
-
-  const loadMorePosts = async () => {
-    try {
-      const response = await listFetcher({ page, perPage });
-      console.log(response);
-      const newPosts = response;
-      setPosts((prev) => [...prev, ...newPosts]);
-      setPage((prev) => {
-        return prev + 1;
-      });
-      if (newPosts.length < 10) {
-        setIsNextPage(true);
-      }
-    } catch (error) {
-      console.error("Failed to load more post", error);
-    }
-  };
+  }, [isIntersecting, isLoading]);
 
   return (
     <div>
-      {posts &&
-        posts.map(
-          (e: {
-            id: number;
-            title: string;
-            createdAt: Date;
-            thumbnail: string;
-          }) => (
-            // <Link
-            //   href={`/develop/${e.id}`}
-            //   key={e.id}
-            //   className="border-2 rounded-xl mb-5 flex-1 m-2 shadow-xl h-64 flex justify-center"
-            // >
-            //   <div className="mt-auto text-xl font-bold">
-            //     <div>{e.title}</div>
-            //   </div>
-            // </Link>
-            <Headline post={e} key={e.id} />
-          )
-        )}
-      <div ref={targetRef}>
-        {isIntersecting && !isNextPage ? <p> 불러오는 중.... </p> : null}
-      </div>
+      {data &&
+        data.map((element, index) => (
+          <div key={index}>
+            {element.map(
+              (e: {
+                id: number;
+                title: string;
+                createdAt: Date;
+                thumbnail: string;
+              }) => (
+                <Headline post={e} key={e.id} />
+              )
+            )}
+          </div>
+        ))}
+      <div ref={targetRef}>{isLoading ? <p> 불러오는 중.... </p> : null}</div>
     </div>
   );
 };

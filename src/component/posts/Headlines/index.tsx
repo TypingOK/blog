@@ -1,4 +1,3 @@
-import { listFetcher } from "@/src/common/postListFetcher";
 import prisma from "@/src/lib/prisma";
 import Link from "next/link";
 import { use } from "react";
@@ -22,14 +21,12 @@ const getPost = async () => {
     skip: 0,
     take: 5,
   });
-  console.log(posts);
 
   return { posts };
 };
 
 const PostHeadlines = () => {
   const { posts } = use(getPost());
-  // console.log(posts);
   return (
     <div className="w-full h-full flex flex-wrap ">
       {posts &&

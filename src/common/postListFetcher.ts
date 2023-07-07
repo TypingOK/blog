@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const listFetcher = async ({
+export const fetcher = async ({
   page,
   perPage,
 }: {
