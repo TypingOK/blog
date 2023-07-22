@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 import DeleteButton from "./DeleteButton";
 import prisma from "@/src/lib/prisma";
 import { remark } from "remark";
@@ -66,30 +66,29 @@ const Post = async ({ params: { post } }: { params: { post: string } }) => {
 
     const formattedDateTime = `${year}. ${month}. ${date}. ${period} ${formattedHours}:${minutes}`;
 
-    // const create = data.createdAt
-    //   ? data.createdAt.toString().split("T")
-    //   : ["데이터 없음", ""];
-
     return (
       <div className="w-full h-full min-h-[600px]">
-        <h1 className="text-3xl font-extrabold">{data.title}</h1>
+        <h1 className="text-2xl font-extrabold">{data.title}</h1>
         <div className="w-full flex text-sm mt-5">
           <div className="mb-2">
             <DeleteButton post={post} author={data.author.name} />
           </div>
           <div className="ml-auto mr-2">작성시간 {formattedDateTime}</div>
-          {/* <div>
-            {create[1].length > 0
-              ? create[1].split("-")[0] + ":" + create[1].split(":-")[1]
-              : create[1]}
-          </div> */}
         </div>
-        {/* <div>{data.tag}</div> */}
-        <div className={`border w-full border-black`}></div>
+
+        <div className={`border w-full border-primary-300`}></div>
         <article
-          className="w-full h-full mt-5 prose"
+          className="max-w-none h-full mt-5 prose prose-zinc dark:prose-invert"
           dangerouslySetInnerHTML={{ __html: data.content }}
         ></article>
+        <div className="flex mt-5 mb-5">
+          <div className="mr-2">태그: </div>
+          {data.tag.map((e, index) => (
+            <div className="mr-2" key={index}>
+              {e}
+            </div>
+          ))}
+        </div>
       </div>
     );
   } else {

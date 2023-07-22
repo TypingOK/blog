@@ -1,5 +1,4 @@
 import prisma from "@/src/lib/prisma";
-import Link from "next/link";
 import { use } from "react";
 import Headline from "./Headline";
 
@@ -28,7 +27,7 @@ const getPost = async () => {
 const PostHeadlines = () => {
   const { posts } = use(getPost());
   return (
-    <div className="w-full h-full flex flex-wrap ">
+    <div className="w-full h-full flex flex-wrap justify-center">
       {posts &&
         posts.map(
           (e: {

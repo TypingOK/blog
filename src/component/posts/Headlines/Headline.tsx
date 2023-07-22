@@ -2,12 +2,15 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 const Headline = ({
   post,
 }: {
   post: { id: number; title: string; createdAt: Date; thumbnail: string };
 }) => {
+  const router = usePathname();
   const dateTimeString = post.createdAt;
   const dateTime = new Date(dateTimeString);
   const formattedDateTime = dateTime.toLocaleString("ko-KR", {
@@ -22,7 +25,9 @@ const Headline = ({
       whileHover={{
         scale: 1.05,
       }}
-      className="relative min-w-[250px] border-2 flex-grow rounded-xl mb-5 flex-1 m-2 overflow-hidden shadow-xl h-64 md:flex-col"
+      className={`relative min-w-[250px] ${
+        router != "/develop" && `max-w-[325px]`
+      } border-2 bg-secondary-100 border-primary-200 flex-grow rounded-xl mb-5 flex-1 m-2 overflow-hidden shadow-xl h-64 md:flex-col`}
     >
       <Link
         href={`/develop/${post.id}`}

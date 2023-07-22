@@ -3,9 +3,9 @@ import LoginContainer from "./LoginContainer";
 
 const Header = () => {
   return (
-    <div className="flex w-full h-12 items-center">
+    <div className="flex w-full h-full  max-w-5xl items-center">
       <Link href={"/"}>
-        <h1 className="text-2xl">TypingOk.Blog</h1>
+        <h1 className="text-4xl font-bold">TypingOk.Blog</h1>
       </Link>
       <nav className="ml-auto">
         <Link href={"/info"}>Info</Link>

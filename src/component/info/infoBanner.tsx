@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useAnimation } from "framer-motion";
+import { easeInOut, motion, useAnimation } from "framer-motion";
 
 const InfoBanner = () => {
   const leftControls = useAnimation();
@@ -24,7 +24,7 @@ const InfoBanner = () => {
   };
 
   return (
-    <div className="w-full h-[300px] mt-5 mb-5 border-2 rounded-2xl shadow-2xl overflow-hidden">
+    <div className="w-full bg-secondary-100 h-[300px] mt-5 mb-5 border-2 border-primary-200 rounded-2xl shadow-lg overflow-hidden">
       <Link href={"/info"}>
         <div className="flex w-full h-full relative overflow-hidden">
           <motion.div
@@ -51,18 +51,21 @@ const InfoBanner = () => {
             <motion.div
               className="w-fit h-full absolute z-10 -left-96 bg-white flex items-center"
               animate={rightControls}
+              transition={{ ease: "easeInOut", duration: 0.2 }}
             >
               <div className="w-full text-2xl z-10">블로그에 대해</div>
             </motion.div>
             <motion.div
               className="w-fit h-fit absolute z-10 -top-14  bg-white flex items-center"
               animate={bottomControls}
+              transition={{ ease: "easeInOut", duration: 0.2 }}
             >
               <div className="w-full text-2xl z-10">TypingOK에 대해</div>
             </motion.div>
             <motion.div
               className="w-fit h-fit absolute z-10 -bottom-14  bg-white flex items-center"
               animate={topControls}
+              transition={{ ease: "easeInOut", duration: 0.2 }}
             >
               <div className="w-full text-2xl z-10">개발자에 대해</div>
             </motion.div>
