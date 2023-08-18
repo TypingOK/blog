@@ -20,11 +20,11 @@ export default function RootLayout({
     <html lang="ko">
       <body className={inter.className}>
         <Provider>
-          <div className="w-full h-16 flex justify-center sticky bg-primary-100  top-0 z-[999999]">
+          <div className="w-full h-16 flex justify-center sticky bg-primary-200  top-0 z-[999999]">
             <Header />
           </div>
           <section
-            className={`w-full min-h-screen h-full flex justify-center bg-primary-100`}
+            className={`w-full min-h-screen h-full flex bg-primary-100 justify-center`}
           >
             <div className={`w-full h-full max-w-5xl`}>
               {/* <div className={"border-b-4 border-b-custom-400"}>

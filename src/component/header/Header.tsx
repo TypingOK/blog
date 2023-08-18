@@ -8,9 +8,11 @@ const Header = () => {
         <h1 className="text-4xl font-bold">TypingOk.Blog</h1>
       </Link>
       <nav className="ml-auto">
-        <Link href={"/info"}>Info</Link>
-        <Link className="ml-4" href={"/develop"}>
-          Develop
+        <Link href={"/info"} className="font-semibold">
+          Info
+        </Link>
+        <Link className="ml-4 font-semibold" href={"/develop"}>
+          Posts
         </Link>
       </nav>
       <nav className="ml-8">

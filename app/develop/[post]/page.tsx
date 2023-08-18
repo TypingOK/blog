@@ -3,6 +3,7 @@ import DeleteButton from "./DeleteButton";
 import prisma from "@/src/lib/prisma";
 import { remark } from "remark";
 import html from "remark-html";
+import BottomPostList from "./BottomPostList";
 
 const fetcher = async ({ id }: { id: string }) => {
   const post = await prisma.post.findFirst({
@@ -44,8 +45,43 @@ const fetcher = async ({ id }: { id: string }) => {
   }
 };
 
+const getPreviousAndNextPosts = async ({ id }: { id: number }) => {
+  const previousPost = await prisma.post.findFirst({
+    where: {
+      id: { lt: id },
+    },
+    orderBy: {
+      id: "desc",
+    },
+    select: {
+      id: true,
+      title: true,
+    },
+  });
+  const nextPost = await prisma.post.findFirst({
+    where: {
+      id: { gt: id },
+    },
+    orderBy: {
+      id: "asc",
+    },
+    select: {
+      id: true,
+      title: true,
+    },
+  });
+
+  return {
+    previousPost,
+    nextPost,
+  };
+};
+
 const Post = async ({ params: { post } }: { params: { post: string } }) => {
   const { data } = await fetcher({ id: post });
+  const { previousPost, nextPost } = await getPreviousAndNextPosts({
+    id: parseInt(post),
+  });
   if (data && data.id !== undefined && data.createdAt) {
     const dateObj = data.createdAt;
 
@@ -78,7 +114,7 @@ const Post = async ({ params: { post } }: { params: { post: string } }) => {
 
         <div className={`border w-full border-primary-300`}></div>
         <article
-          className="max-w-none h-full mt-5 prose prose-zinc dark:prose-invert"
+          className="max-w-none h-full mt-5 prose"
           dangerouslySetInnerHTML={{ __html: data.content }}
         ></article>
         <div className="flex mt-5 mb-5">
@@ -89,6 +125,7 @@ const Post = async ({ params: { post } }: { params: { post: string } }) => {
             </div>
           ))}
         </div>
+        <BottomPostList previousPost={previousPost} nextPost={nextPost} />
       </div>
     );
   } else {
