@@ -6,6 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import imageCompression from "browser-image-compression";
 import uploadFirebase from "@/src/common/uploadFirebase";
+import { useSession } from "next-auth/react";
 
 interface postType {
   title: string;
@@ -35,6 +36,7 @@ const WritePost = () => {
   const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
   const [thumbnailPriview, setThumbnailPriview] = useState<any>([]);
   const thumbnailImage = useRef<any>();
+  const { data } = useSession();
 
   const [tag, setTag] = useState<String[]>([]);
 
@@ -78,9 +80,12 @@ const WritePost = () => {
   };
 
   const onClickThumbnailUpload = async () => {
-    const result = await uploadFirebase(thumbnail);
-    console.log(result);
-    setThumbnailUrl(result);
+    if (data && data.user && data.user.email) {
+      const email = data.user.email;
+      const result = await uploadFirebase(thumbnail, email);
+      console.log(result);
+      setThumbnailUrl(result);
+    }
   };
 
   const onChangeThumbnail = async (e: ChangeEvent<HTMLInputElement>) => {

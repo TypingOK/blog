@@ -1,9 +1,19 @@
 import storage from "./firebaseconfig";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import {
+  ref,
+  getDownloadURL,
+  uploadBytesResumable,
+  getMetadata,
+} from "firebase/storage";
 
-const uploadFirebase = async (file: File): Promise<string> => {
+const uploadFirebase = async (file: File, email: string): Promise<string> => {
   const storageRef = ref(storage, `files/${file.name}`);
-  const uploadTask = uploadBytesResumable(storageRef, file);
+  const existingMetadata = await getMetadata(storageRef);
+
+  const uploadTask = uploadBytesResumable(storageRef, file, {
+    customMetadata: { ...existingMetadata.customMetadata, email: email },
+  });
+
   return new Promise((resolve, reject) => {
     uploadTask.on(
       "state_changed",
