@@ -42,8 +42,10 @@ const Headline = ({
           />
         </div>
         <div className="w-full flex justify-center flex-col items-center h-28">
-          <div className="mt-auto ">
-            <div className="text-xl font-bold">{post.title}</div>
+          <div className="mt-auto w-full max-w-[310px]">
+            <div className="text-xl font-bold truncate text-center">
+              {post.title}
+            </div>
           </div>
           <div className="text-xs w-full flex justify-end">
             <div className="mr-3">{formattedDateTime}</div>

@@ -15,7 +15,7 @@ const BottomPostList = ({
         <Link
           href={`/develop/${previousPost.id}`}
           about="이전 게시물"
-          className="p-3 mr-2 relative flex-1 rounded-xl flex justify-start items-center border-2 shadow-xl bg-secondary-100 border-primary-200"
+          className="p-3 mr-2 relative flex-1 rounded-xl flex justify-start items-center border-2 shadow-xl bg-secondary-100 border-primary-200 max-w-xs"
         >
           <Image
             src={"/leftArrow.svg"}
@@ -33,20 +33,20 @@ const BottomPostList = ({
       )}
       <Link
         href="/develop"
-        className="flex items-center justify-center md:flex-[1.5] p-3 ml-2 rounded-xl border-2 shadow-xl bg-secondary-100 border-primary-200"
+        className="flex items-center justify-center md:flex-[1.5] p-3 ml-2 rounded-xl border-2 shadow-xl bg-secondary-100 border-primary-200 max-w-xs"
       >
         <Image src={"/menu.svg"} alt="left arrow" width={30} height={30} />
         <div>목록</div>
       </Link>
-      {nextPost !== null && (
+      {nextPost !== null ? (
         <Link
           href={`/develop/${nextPost.id}`}
           about="다음 게시물"
-          className="p-3 ml-2 flex-1 rounded-xl flex justify-end items-center border-2 shadow-xl bg-secondary-100 border-primary-200"
+          className="p-3 ml-2 flex-1 rounded-xl flex justify-end items-center border-2 shadow-xl bg-secondary-100 border-primary-200 max-w-xs"
         >
           <div>
             <div className="md:text-sm text-end text-xs">다음</div>
-            <div className="md:w-36 lg:w-56 text-sm md:text-base truncate w-14">
+            <div className="md:w-36 lg:w-56 text-sm text-end md:text-base truncate w-14">
               {nextPost.title}
             </div>
           </div>
@@ -57,6 +57,8 @@ const BottomPostList = ({
             height={30}
           />
         </Link>
+      ) : (
+        <div className="p-3 ml-2 flex-1 flex justify-end items-center  max-w-xs"></div>
       )}
     </div>
   );

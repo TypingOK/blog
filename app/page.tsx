@@ -7,7 +7,7 @@ const Home = () => {
     <div className="w-full h-full">
       {/* <InfoBanner /> */}
       <Link href="info" about="info" className="w-full">
-        <div className="bg-secondary-100 h-[330px] p-3 mt-5 mb-5 border-2 border-primary-200 rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-secondary-100 h-[330px] p-3 mt-5 mb-5 border-primary-200 rounded-2xl shadow-lg overflow-hidden">
           <HomeBanner coordX={0} coordY={"10%"} />
         </div>
       </Link>

@@ -37,10 +37,10 @@ const PostList = () => {
   }, [isIntersecting, isLoading]);
 
   return (
-    <div>
+    <div className="w-full h-full">
       {data &&
         data.map((element, index) => (
-          <div key={index}>
+          <div key={index} className=" flex flex-wrap justify-center">
             {element.map(
               (e: {
                 id: number;
