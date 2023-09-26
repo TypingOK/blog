@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import imageCompression from "browser-image-compression";
 import uploadFirebase from "@/src/common/uploadFirebase";
 import { useSession } from "next-auth/react";
+import { MDXEditorMethods } from "@mdxeditor/editor";
 
 interface postType {
   title: string;
@@ -17,9 +18,11 @@ interface postType {
   thumbnail: string;
 }
 
-const ToastEditor = dynamic(() => import("../Editor/ToastEditor"), {
-  ssr: false,
-});
+// const ToastEditor = dynamic(() => import("../Editor/ToastEditor"), {
+//   ssr: false,
+// });
+
+const MDXEditor = dynamic(() => import("../Editor/MDXEditor"), { ssr: false });
 
 const fetcher = async (body: postType) => {
   const response = await axios.post("/api/create", body, {
@@ -40,7 +43,7 @@ const WritePost = () => {
 
   const [tag, setTag] = useState<String[]>([]);
 
-  const editorRef = useRef<any>("");
+  const editorRef = useRef<MDXEditorMethods>(null);
   const tagRef = useRef<any>();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -61,7 +64,7 @@ const WritePost = () => {
     if (editorRef && editorRef.current) {
       const body = {
         title,
-        content: editorRef.current.getInstance().getMarkdown() as string,
+        content: editorRef.current.getMarkdown() as string,
         tag,
         category,
         thumbnail: thumbnailUrl,
@@ -131,7 +134,24 @@ const WritePost = () => {
       </div>
       <div>
         <div>
-          <ToastEditor editorRef={editorRef} />
+          {editorRef !== undefined && (
+            <MDXEditor markdown="" editorRef={editorRef} />
+          )}
+
+          <button
+            onClick={() => {
+              editorRef.current?.setMarkdown("new markdown");
+            }}
+          >
+            새로운 마크다운 생성
+          </button>
+          <button
+            onClick={() => {
+              console.log(editorRef.current?.getMarkdown());
+            }}
+          >
+            마크다운 얻어오기
+          </button>
         </div>
       </div>
       <div className="mt-7">
