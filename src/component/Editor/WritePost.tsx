@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import imageCompression from "browser-image-compression";
 import uploadFirebase from "@/src/common/uploadFirebase";
 import { useSession } from "next-auth/react";
-import { MDXEditorMethods } from "@mdxeditor/editor";
+import Image from "next/image";
 
 interface postType {
   title: string;
@@ -17,12 +17,9 @@ interface postType {
   category: string;
   thumbnail: string;
 }
-
-// const ToastEditor = dynamic(() => import("../Editor/ToastEditor"), {
-//   ssr: false,
-// });
-
-const MDXEditor = dynamic(() => import("../Editor/MDXEditor"), { ssr: false });
+const MdEditor = dynamic(() => import("../Editor/MdEditor"), {
+  ssr: false,
+});
 
 const fetcher = async (body: postType) => {
   const response = await axios.post("/api/create", body, {
@@ -37,13 +34,13 @@ const WritePost = () => {
   const [title, setTitle] = useState<String>("");
   const [thumbnail, setThumbnail] = useState<any>();
   const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
-  const [thumbnailPriview, setThumbnailPriview] = useState<any>([]);
-  const thumbnailImage = useRef<any>();
+  const [thumbnailPriview, setThumbnailPriview] = useState<string | null>(null);
+  const thumbnailImage = useRef<HTMLInputElement>(null);
   const { data } = useSession();
 
   const [tag, setTag] = useState<String[]>([]);
 
-  const editorRef = useRef<MDXEditorMethods>(null);
+  const editorRef = useRef<any>(null);
   const tagRef = useRef<any>();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -64,7 +61,7 @@ const WritePost = () => {
     if (editorRef && editorRef.current) {
       const body = {
         title,
-        content: editorRef.current.getMarkdown() as string,
+        content: editorRef.current.markdown as string,
         tag,
         category,
         thumbnail: thumbnailUrl,
@@ -74,6 +71,7 @@ const WritePost = () => {
       if (result.status === 200 && result.statusText === "OK") {
         router.push("/");
       }
+      console.log(editorRef.current);
     }
   };
   const categoryHandler = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -132,27 +130,11 @@ const WritePost = () => {
           </option>
         </select>
       </div>
-      <div>
-        <div>
-          {editorRef !== undefined && (
-            <MDXEditor markdown="" editorRef={editorRef} />
-          )}
-
-          <button
-            onClick={() => {
-              editorRef.current?.setMarkdown("new markdown");
-            }}
-          >
-            새로운 마크다운 생성
-          </button>
-          <button
-            onClick={() => {
-              console.log(editorRef.current?.getMarkdown());
-            }}
-          >
-            마크다운 얻어오기
-          </button>
-        </div>
+      <div className="w-full">
+        <>
+          {/* {editorRef !== undefined && <ToastEditor editorRef={editorRef} />} */}
+          {data !== null && <MdEditor editorRef={editorRef} data={data} />}
+        </>
       </div>
       <div className="mt-7">
         태그 <input className="border-2 w-2/4 mr-4" ref={tagRef} />
@@ -167,12 +149,17 @@ const WritePost = () => {
       </div>
       <div className="mt-3 border-2">
         <div>섬네일 미리보기</div>
-        <img
-          src={thumbnailPriview}
-          alt="썸네일"
-          width="200px"
-          height="auto"
-        ></img>
+        {thumbnailPriview === null ? (
+          <div>아무 이미지가 없음</div>
+        ) : (
+          <Image
+            src={thumbnailPriview}
+            alt="썸네일"
+            width="200"
+            height="200"
+          ></Image>
+        )}
+
         <input
           type="file"
           accept="image/*"

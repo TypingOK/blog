@@ -8,10 +8,9 @@ import {
 
 const uploadFirebase = async (file: File, email: string): Promise<string> => {
   const storageRef = ref(storage, `files/${file.name}`);
-  const existingMetadata = await getMetadata(storageRef);
-
+  // const existingMetadata = await getMetadata(storageRef);
   const uploadTask = uploadBytesResumable(storageRef, file, {
-    customMetadata: { ...existingMetadata.customMetadata, email: email },
+    customMetadata: { email: email },
   });
 
   return new Promise((resolve, reject) => {

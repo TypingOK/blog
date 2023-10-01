@@ -1,7 +1,13 @@
 import React from "react";
 import DeleteButton from "./DeleteButton";
 import prisma from "@/src/lib/prisma";
-import { remark } from "remark";
+import { read } from "to-vfile";
+import { unified } from "unified";
+import rehypeStringify from "rehype-stringify";
+import remarkParse from "remark-parse";
+import rehypeRaw from "rehype-raw";
+import remarkRehype from "remark-rehype";
+import rehypeSanitize from "rehype-sanitize";
 import html from "remark-html";
 import BottomPostList from "./BottomPostList";
 
@@ -18,7 +24,30 @@ const fetcher = async ({ id }: { id: string }) => {
   });
 
   if (post !== null && post !== undefined && post.content) {
-    const content = (await remark().use(html).process(post.content)).toString();
+    const schema = rehypeSanitize({
+      tagNames: [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "br",
+        "p",
+        "div",
+        "span",
+        "img",
+      ],
+    });
+    const content = (
+      await unified()
+        .use(remarkParse)
+        .use(remarkRehype, { allowDangerousHtml: true })
+        .use(rehypeRaw)
+        .use(rehypeSanitize, schema)
+        .use(rehypeStringify)
+        .process(post.content)
+    ).toString();
     const { content: _, ...rest } = post;
     const result = {
       ...rest,
@@ -79,6 +108,7 @@ const getPreviousAndNextPosts = async ({ id }: { id: number }) => {
 
 const Post = async ({ params: { post } }: { params: { post: string } }) => {
   const { data } = await fetcher({ id: post });
+  console.log(data);
   const { previousPost, nextPost } = await getPreviousAndNextPosts({
     id: parseInt(post),
   });
