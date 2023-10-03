@@ -44,7 +44,7 @@ const fetcher = async ({ id }: { id: string }) => {
         .use(remarkParse)
         .use(remarkRehype, { allowDangerousHtml: true })
         .use(rehypeRaw)
-        .use(rehypeSanitize, schema)
+        .use(rehypeSanitize)
         .use(rehypeStringify)
         .process(post.content)
     ).toString();
