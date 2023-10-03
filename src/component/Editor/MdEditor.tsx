@@ -22,7 +22,7 @@ const MdEditor = ({ editorRef, data }: { editorRef: any; data: Session }) => {
       </svg>
       // <span style={{ padding: "0 5px" }}>Custom Toolbar</span>
     ),
-    execute: async (state, api) => {
+    execute: async () => {
       if (!imageInsertRef.current) {
         return;
       } else {
@@ -139,7 +139,7 @@ const MdEditor = ({ editorRef, data }: { editorRef: any; data: Session }) => {
           event.preventDefault();
           const clipboardItems = event.clipboardData.files;
           console.log(clipboardItems);
-          
+
           if (clipboardItems) {
             let files = [] as File[];
             for (const clipboardItem of clipboardItems) {
