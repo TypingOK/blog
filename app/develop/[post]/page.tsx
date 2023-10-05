@@ -133,7 +133,7 @@ const Post = async ({ params: { post } }: { params: { post: string } }) => {
     const formattedDateTime = `${year}. ${month}. ${date}. ${period} ${formattedHours}:${minutes}`;
 
     return (
-      <div className="w-full h-full min-h-[600px]">
+      <div className="w-full h-full min-h-[600px] flex flex-col">
         <h1 className="text-2xl font-extrabold">{data.title}</h1>
         <div className="w-full flex text-sm mt-5">
           <div className="mb-2">
@@ -147,15 +147,17 @@ const Post = async ({ params: { post } }: { params: { post: string } }) => {
           className="max-w-none h-full mt-5 prose"
           dangerouslySetInnerHTML={{ __html: data.content }}
         ></article>
-        <div className="flex mt-5 mb-5">
+        <div className="flex mt-auto mb-2 w-full flex-wrap">
           <div className="mr-2">태그: </div>
           {data.tag.map((e, index) => (
-            <div className="mr-2" key={index}>
+            <div className="mr-2 w-auto" key={index}>
               {e}
             </div>
           ))}
         </div>
-        <BottomPostList previousPost={previousPost} nextPost={nextPost} />
+        <div className="mt-auto mb-2">
+          <BottomPostList previousPost={previousPost} nextPost={nextPost} />
+        </div>
       </div>
     );
   } else {

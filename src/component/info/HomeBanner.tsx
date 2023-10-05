@@ -16,19 +16,15 @@ const HomeBanner = ({
         coordY={coordY}
       >
         <div className="w-full h-full flex flex-col justify-center">
-          <div className="h-11 text-3xl font-extrabold mb-auto">저는</div>
-          <div className="h-11 text-4xl font-extrabold ml-7">
-            함께 성장하는 것을 좋아하는
+          <div className="md:h-11 h-24 md:text-4xl font-extrabold md:ml-7 ml-2 text-xl">
+            프론트엔드 개발자
           </div>
-          <div className="h-11 text-4xl font-extrabold ml-24">
-            새로운 것을 배우기 힘쓰는
+          <div className="md:h-11 h-48 md:text-4xl font-extrabold md:ml-24 ml-3 text-xl">
+            TypingOK의
           </div>
-          <div className="h-11 text-3xl font-extrabold ml-48 mt-auto">
-            프론트엔드 개발자입니다.
+          <div className="md:h-11 md:text-3xl font-extrabold md:ml-48 ml-4 mt-auto text-xl">
+            개발 블로그입니다.
           </div>
-        </div>
-        <div className="w-56 h-64 relative">
-          <Image src="/사진.jpg" alt="profile image" fill></Image>
         </div>
       </MyInfoTop>
     </section>
