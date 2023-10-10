@@ -136,10 +136,9 @@ const MdEditor = ({ editorRef, data }: { editorRef: any; data: Session }) => {
           image,
         ]}
         onPaste={async (event) => {
-          event.preventDefault();
+          
           const clipboardItems = event.clipboardData.files;
-          console.log(clipboardItems);
-
+          
           if (clipboardItems) {
             let files = [] as File[];
             for (const clipboardItem of clipboardItems) {
@@ -152,6 +151,8 @@ const MdEditor = ({ editorRef, data }: { editorRef: any; data: Session }) => {
                 );
               }
             }
+          } else {
+            return;
           }
 
           // await onImageUploadPasteOrDrop();

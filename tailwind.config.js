@@ -15,6 +15,10 @@ module.exports = {
         300: "#A6B1C0",
         400: "#3F5D7D",
       },
+      etc: {
+        blue: "#006cb7",
+        red: "ff0000",
+      },
       //white to black
       secondary: {
         100: "#FFFFFF",
