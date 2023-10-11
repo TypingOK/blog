@@ -9,13 +9,13 @@ const HomeBanner = ({
   coordY?: string | number;
 }) => {
   return (
-    <section className="w-full flex justify-center flex-col items-center mt-5">
+    <section className="w-full relative flex justify-center flex-col items-center mt-5 z-10">
       <MyInfoTop
         className="flex justify-between w-full h-72"
         coordX={coordX}
         coordY={coordY}
       >
-        <div className="w-full h-full flex flex-col justify-center">
+        <div className="w-full h-full flex flex-col text-primary-100 justify-center">
           <div className="md:h-11 h-24 md:text-4xl font-extrabold md:ml-7 ml-2 text-xl">
             프론트엔드 개발자
           </div>

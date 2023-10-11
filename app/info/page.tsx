@@ -91,11 +91,11 @@ const InfoPage = () => {
       {/* 기술 스택 부분 */}
       <section className="mt-5 md:mt-14 md:flex w-full">
         <div>
-          <h1 className="text-3xl w-48 font-extrabold text-etc-blue">
+          <h1 className="text-3xl w-48 text-end font-extrabold text-etc-blue">
             Tech Stack
           </h1>
         </div>
-        <div className="w-full text-end text-xs align-text-bottom mt-3 flex">
+        <div className="w-full text-end ml-5 text-xs align-text-bottom mt-3 flex">
           기술 스택 옆
           <Image
             src="/number1.svg"
@@ -225,7 +225,15 @@ const InfoPage = () => {
               Docker
             </span>
             <span className="w-32">AWS</span>
-            <span className="w-32">Git</span>
+            <span className="w-32 flex">
+              <Image
+                src="/number1.svg"
+                alt="1 아이콘"
+                width={15}
+                height={15}
+              ></Image>
+              Git
+            </span>
           </div>
           <div className="w-full flex justify-evenly">
             <span className="w-32">Nginx</span>
@@ -237,6 +245,225 @@ const InfoPage = () => {
         </div>
       </section>
       {/* Projects */}
+      <section className="mt-5 md:mt-14 md:flex w-full">
+        <div>
+          <h1 className="text-3xl md:text-end w-48 font-extrabold text-etc-blue">
+            Projects
+          </h1>
+        </div>
+      </section>
+      <div className="w-full flex">
+        <div className="font-bold ml-3 md:w-1/5 text-end mt-3">
+          2023-07~2023-08
+        </div>
+        <section className="md:w-4/5">
+          <div>
+            <div className="md:mt-3 text-2xl font-extrabold md:ml-5 ">
+              LMS 클래스룸 수강시스템
+            </div>
+            <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+              배포 주소:{"  "}
+              <Link
+                href="https://lms-a.sniperfactory.com/"
+                target="_blank"
+                className="underline"
+              >
+                바로가기(클릭)
+              </Link>
+              {"  "} | 깃허브:{" "}
+              <Link
+                href="https://github.com/TypingOK/sfac-lms-team-a"
+                target="_blank"
+                className="underline"
+              >
+                바로가기(클릭)
+              </Link>
+              {"  "} | 프로젝트 자세히보기(Notion):{"  "}
+              <Link
+                href="https://spectrum-bracket-f5c.notion.site/LMS-d61982f1a871414e84edd775d403f619"
+                target="_blank"
+                className="underline"
+              >
+                바로가기(클릭)
+              </Link>
+            </div>
+            <div className="md:ml-5 md:mt-3">
+              <div className="font-bold">
+                - 5개의 팀이 각자 기능을 만들고 합쳐 하나의 사이트를 완성하는
+                프로젝트
+              </div>
+              <div className="text-sm">
+                &nbsp; &nbsp; &nbsp; - 참여하는 모든 팀의 팀장 전체를 모아
+                회의를 주도하고 공용 컴포넌트를 설계
+                <br></br>
+                &nbsp; &nbsp; &nbsp; - 참여하는 전체 팀의 총 책임자의 역할을
+                수행.
+                <br></br>
+                &nbsp; &nbsp; &nbsp; - 메인 브랜치로 합치는 경우 각 팀장들을
+                리뷰어로 두어 코드 컨벤션 및 진행 상황 트래킹 시도
+              </div>
+              <div className="">
+                - Firebase를 사용하여 NoSQL을 Eraser를 통해 모든 팀들이 다 같이
+                협력하면서 DB구조를 설계
+              </div>
+              <div className="">- 강의 수강 페이지를 담당</div>
+              <div className="text-sm">
+                &nbsp; &nbsp; &nbsp; - 동영상 강의, Markdown 형식의 문서, 링크
+                형식의 글을 확인할 수 있도록 함.
+                <br></br>
+                &nbsp; &nbsp; &nbsp; - 댓글, 대댓글, 타임스탬프, 동영상 강의
+                플레이 시간 기록 기능을 구현함.
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className="w-full flex">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2023-05 ~
+        </div>
+        <section className="md:w-4/5">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5">
+            Next.js 블로그 개발
+          </div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            배포 주소:{"  "}
+            <Link
+              href="https://blog-typingok.vercel.app/"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+            {"  "} | 깃허브:{" "}
+            <Link
+              href="https://github.com/TypingOK/blog"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+            {"  "} | 프로젝트 자세히보기(Notion):{"  "}
+            <Link
+              href="https://spectrum-bracket-f5c.notion.site/Develop-Blog-5985e09e05094ac58b366109c6554b98?pvs=4"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+          </div>
+          <div className="md:ml-5 md:mt-3 md:w-11/12">
+            <div className="font-bold">
+              - 개발하고 공부한 내용을 정리하기 위해 만드는 블로그
+            </div>
+            <div className="">
+              - Next.js App router를 사용하였으며, 프론트엔드 개발만으로 백엔드
+              개발 없이 직접 DB와 연결할 수 있도록 함.
+            </div>
+            <div className="">
+              - Vercel에서 지원하는 Postgresql을 사용하여 빠르게 DB를 구축 및
+              배포하였으며 Prisma를 사용하여 Next.js에서 접근
+            </div>
+            <div>- Vercel을 이용하여 CI&CD를 구현함</div>
+            <div>- Next auth를 이용하여 Github 로그인 구현</div>
+            <div>- Yarn berry를 이용하여 Zero Install 방식으로 모듈 관리</div>
+          </div>
+        </section>
+      </div>
+      <div className="w-full flex">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2023-03 ~ 2023-05
+        </div>
+        <section className="w-4/5">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5 md:w-11/12">
+            BananVote
+          </div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            깃허브:{" "}
+            <Link
+              href="https://github.com/Cocktail-Masters/Banana-Vote-FE"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+            {"  "} | 프로젝트 자세히보기(Notion):{"  "}
+            <Link
+              href="https://spectrum-bracket-f5c.notion.site/Banana-Vote-57399684471b423ab94947bbd83c0799"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+          </div>
+          <div className="md:ml-5 md:mt-3 text-bold">
+            <div className="font-bold">
+              - 간편하게 투표하고 의견을 적을 수 있는 사이트. 투표 작성 페이지,
+              이벤트 페이지, 마이페이지 담당하여 개발.
+            </div>
+            <div className="">- Next.js App router를 활용하여 개발.</div>
+            <div className="">- React-Query를 사용하여 서버 상태를 관리.</div>
+            <div>
+              - Tailwind CSS를 사용하였으며 다크모드 설정하였을 때에도
+              새로고침시 화면 깜빡임이 없도록 함.
+            </div>
+            <div>- PlayWright를 활용한 E2E 테스트 시도.</div>
+            <div>- i18n을 활용하여 영어, 한국어, 일본어 지원</div>
+          </div>
+        </section>
+      </div>
+      <div className="w-full flex">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2022-12 ~ 2023-01
+        </div>
+        <section className="w-4/5">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5">Drawee</div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            배포 주소:{"  "}
+            <Link
+              href="https://drawee.art/"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+            {"  "} | 깃허브:{" "}
+            <Link
+              href="https://github.com/coop-game/coop"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+            {"  "} | 프로젝트 자세히보기(Notion):{"  "}
+            <Link
+              href="https://spectrum-bracket-f5c.notion.site/Drawee-59f9b3533d9f41e49fc66eebaa05d514"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+          </div>
+          <div className="md:ml-5 md:mt-3 md:w-11/12">
+            <div className="font-bold">
+              - WebRTC와 Next.js를 활용한 그림그리기 사이트. 모노레포를 이용하여
+              게임 핵심 기능을 따로 관리함. 이어달리기 모드, 게임 결과 페이지,
+              Home 페이지 담당하여 개발
+            </div>
+            <div className="">
+              - Next.js, i18n을 활용하여 한국어, 영어 지원.
+            </div>
+            <div className="">
+              - Framer-motion을 사용하여 다양한 애니메이션 추가
+            </div>
+            <div>- SEO 최적화</div>
+            <div className="text-sm">
+              &nbsp; &nbsp; &nbsp; - 최적화 이후 지속적으로 구글에서 검색량이
+              많아지고 있음.
+            </div>
+          </div>
+        </section>
+      </div>
       {/* Certificate */}
       {/* Education */}
       {/* ETC */}
