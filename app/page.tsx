@@ -12,7 +12,7 @@ const Home = () => {
           <HomeBanner coordX={0} coordY={"10%"} />
           <div className="filter brightness-50 absolute left-0 top-0 w-[1200px] h-full flex justify-center">
             <Image
-              src="/jeju-copy.JPG"
+              src="/jejuCopy.JPG"
               alt="제주도 한라산 정상 사진"
               fill
               className=""

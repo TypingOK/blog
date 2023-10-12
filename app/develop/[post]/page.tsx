@@ -1,15 +1,49 @@
 import React from "react";
 import DeleteButton from "./DeleteButton";
 import prisma from "@/src/lib/prisma";
-import { read } from "to-vfile";
 import { unified } from "unified";
 import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import rehypeRaw from "rehype-raw";
 import remarkRehype from "remark-rehype";
 import rehypeSanitize from "rehype-sanitize";
-import html from "remark-html";
 import BottomPostList from "./BottomPostList";
+import type { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: { post: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const id = params.post;
+  console.log(params);
+  const post = await prisma.post.findFirst({
+    where: {
+      AND: [{ id: parseInt(id) }, { published: true }],
+    },
+    select: {
+      title: true,
+      tag: true,
+      thumbnail: true,
+    },
+  });
+  if (post !== null) {
+    return {
+      title: post.title,
+      keywords: [...post.tag],
+      openGraph: {
+        images: post.thumbnail,
+      },
+    };
+  } else {
+    return {};
+  }
+}
 
 const fetcher = async ({ id }: { id: string }) => {
   const post = await prisma.post.findFirst({
@@ -108,7 +142,6 @@ const getPreviousAndNextPosts = async ({ id }: { id: number }) => {
 
 const Post = async ({ params: { post } }: { params: { post: string } }) => {
   const { data } = await fetcher({ id: post });
-  console.log(data);
   const { previousPost, nextPost } = await getPreviousAndNextPosts({
     id: parseInt(post),
   });

@@ -1,4 +1,3 @@
-import MyInfoTop from "@/src/component/info/MyInfoTop";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -48,8 +47,10 @@ const InfoPage = () => {
         </div>
       </div>
       {/* 자기소개 부분 */}
-      <div className="mt-5 md:mt-14 md:flex">
-        <h1 className="text-3xl font-extrabold text-etc-blue">Introduction</h1>
+      <div className="mt-5 md:mt-14 md:flex w-full">
+        <h1 className="text-3xl font-extrabold md:w-1/5 md:text-end text-etc-blue">
+          Introduction
+        </h1>
         <div className="ml-0 md:ml-5 mt-2">
           <div>
             <h1 className="text-xl font-bold">
@@ -90,19 +91,19 @@ const InfoPage = () => {
       </div>
       {/* 기술 스택 부분 */}
       <section className="mt-5 md:mt-14 md:flex w-full">
-        <div>
-          <h1 className="text-3xl w-48 text-end font-extrabold text-etc-blue">
+        <div className="md:w-1/5 w-full md:text-end">
+          <h1 className="text-3xl w-full md:text-end font-extrabold text-etc-blue">
             Tech Stack
           </h1>
         </div>
-        <div className="w-full text-end ml-5 text-xs align-text-bottom mt-3 flex">
+        <div className="w-full md:w-4/5 md:text-end ml-0 md:text-sm md:ml-5 text-[0.6rem] align-text-bottom mt-3 flex">
           기술 스택 옆
           <Image
             src="/number1.svg"
             alt="1 아이콘"
-            width={15}
-            height={15}
-            className="mb-5 ml-2"
+            width={12}
+            height={12}
+            className="mb-1 md-2 md:ml-2"
           ></Image>
           아이콘은 문서를 보지 않고도 개발할 수 있음을 나타냅니다.
         </div>
@@ -111,14 +112,14 @@ const InfoPage = () => {
         <div className="md:text-end w-full md:w-48 text-xl font-bold">
           Front-End
         </div>
-        <div className="ml-0 md:ml-5 w-full text-sm">
+        <div className="ml-0 md:ml-5 w-full text-xs md:text-sm ">
           <div className="w-full flex justify-evenly">
-            <span className="w-32 flex">
+            <span className="w-32 flex items-center">
               <Image
                 src="/number1.svg"
                 alt="1 아이콘"
-                width={15}
-                height={15}
+                width={12}
+                height={12}
               ></Image>
               HTML
             </span>
@@ -126,8 +127,8 @@ const InfoPage = () => {
               <Image
                 src="/number1.svg"
                 alt="1 아이콘"
-                width={15}
-                height={15}
+                width={12}
+                height={12}
               ></Image>
               CSS
             </span>
@@ -135,8 +136,8 @@ const InfoPage = () => {
               <Image
                 src="/number1.svg"
                 alt="1 아이콘"
-                width={15}
-                height={15}
+                width={12}
+                height={12}
               ></Image>
               JavaScript
             </span>
@@ -144,20 +145,20 @@ const InfoPage = () => {
               <Image
                 src="/number1.svg"
                 alt="1 아이콘"
-                width={15}
-                height={15}
+                width={12}
+                height={12}
               ></Image>
               TypeScript
             </span>
             <span className="w-32">jQuery</span>
           </div>
-          <div className="w-full flex justify-evenly">
+          <div className="w-full flex justify-evenly items-center">
             <span className="w-32 flex">
               <Image
                 src="/number1.svg"
                 alt="1 아이콘"
-                width={15}
-                height={15}
+                width={12}
+                height={12}
               ></Image>
               React.js
             </span>
@@ -165,8 +166,8 @@ const InfoPage = () => {
               <Image
                 src="/number1.svg"
                 alt="1 아이콘"
-                width={15}
-                height={15}
+                width={12}
+                height={12}
               ></Image>
               Next.js
             </span>
@@ -174,15 +175,15 @@ const InfoPage = () => {
             <span className="w-32">Vuex.js</span>
             <span className="w-32">Redux-Toolkit</span>
           </div>
-          <div className="w-full flex justify-evenly">
+          <div className="w-full flex justify-evenly items-center">
             <span className="w-32">Zustand</span>
             <span className="w-32">Recoil</span>
             <span className="w-32 flex">
               <Image
                 src="/number1.svg"
                 alt="1 아이콘"
-                width={15}
-                height={15}
+                width={12}
+                height={12}
               ></Image>
               React-Query
             </span>
@@ -190,14 +191,14 @@ const InfoPage = () => {
               <Image
                 src="/number1.svg"
                 alt="1 아이콘"
-                width={15}
-                height={15}
+                width={12}
+                height={12}
               ></Image>
               Tailwind-CSS
             </span>
             <span className="w-32">Styled-Component</span>
           </div>
-          <div className="w-full flex justify-evenly">
+          <div className="w-full flex justify-evenly items-center">
             <span className="w-32">Emotion.js</span>
             <span className="w-32">MUI</span>
             <span className="w-32">StoryBook</span>
@@ -211,7 +212,7 @@ const InfoPage = () => {
         <div className="md:text-end w-full md:w-48 text-xl font-bold">
           Back-End, CI/CD
         </div>
-        <div className="ml-0 md:ml-5 w-full text-sm">
+        <div className="ml-0 md:ml-5 w-full md:text-sm text-xs">
           <div className="w-full flex justify-evenly">
             <span className="w-32">Java</span>
             <span className="w-32">SpringBoot</span>
@@ -252,7 +253,7 @@ const InfoPage = () => {
           </h1>
         </div>
       </section>
-      <div className="w-full flex">
+      <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold ml-3 md:w-1/5 text-end mt-3">
           2023-07~2023-08
         </div>
@@ -318,7 +319,7 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
-      <div className="w-full flex">
+      <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
           2023-05 ~
         </div>
@@ -370,11 +371,11 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
-      <div className="w-full flex">
+      <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
           2023-03 ~ 2023-05
         </div>
-        <section className="w-4/5">
+        <section className="w-full md:w-4/5">
           <div className="md:mt-2 text-2xl font-extrabold md:ml-5 md:w-11/12">
             BananVote
           </div>
@@ -412,11 +413,11 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
-      <div className="w-full flex">
+      <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
           2022-12 ~ 2023-01
         </div>
-        <section className="w-4/5">
+        <section className="md:w-4/5 w-full">
           <div className="md:mt-2 text-2xl font-extrabold md:ml-5">Drawee</div>
           <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
             배포 주소:{"  "}
@@ -464,9 +465,263 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2022-10~2022-11
+        </div>
+        <section className="md:w-4/5 w-full">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5">
+            ⼤東HIP地圖
+          </div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            깃허브:{" "}
+            <Link
+              href="https://github.com/TypingOK/HipMap"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+            {"  "} | 프로젝트 자세히보기(Notion):{"  "}
+            <Link
+              href="https://spectrum-bracket-f5c.notion.site/HIP-dac24cf7640848549eecbd5412dcf066"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+          </div>
+          <div className="md:ml-5 md:mt-3 md:w-11/12">
+            <div className="font-bold">
+              - 짧은 영상 혹은 사진과 함께 위치를 공유하여 자신만의 Hip한 공간을
+              공유하는 SNS. 회원관리, 글작성, 쇼츠 영상 보기, 댓글 밑 대댓글
+              달기 구현.
+            </div>
+            <div className="">
+              - Redux-Toolkit, React-Query를 사용한 사용자 상태 관리
+            </div>
+            <div className="">- PWA를 사용하여 웹앱으로 제작</div>
+            <div>- 카카오맵을 사용하여 사용자의 위치를 저장할 수 있도록 함</div>
+            <div>
+              - Lazy Loading을 적용하여 짧은 영상 혹은 사진이 동시에 여러개가
+              로드 되지 않도록 함
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2022-08~2022-10
+        </div>
+        <section className="md:w-4/5 w-full">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5">RECEHFI</div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            깃허브:{" "}
+            <Link
+              href="https://github.com/TypingOK/RECHEFI"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+            {"  "} | 프로젝트 자세히보기(Notion):{"  "}
+            <Link
+              href="https://spectrum-bracket-f5c.notion.site/RECHEFI-72ed18072f8b4c9b8a82dc11dc20c3ca"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+          </div>
+          <div className="md:ml-5 md:mt-3 md:w-11/12">
+            <div className="font-bold">
+              - 인공지능을 이용하여 레시피를 읽어주고 음성 명령을 내릴 수 있는
+              요리 레시피 공유 사이트. 요리 레시피 읽어주기, 음성 명령 기능,
+              요리 사진 공유 페이지, 댓글, 대댓글, 음성 녹음 기능 구현.
+            </div>
+            <div className="">
+              - WebAPIs의 TTS와 STT기능을 사용하여 요리 레시피를 읽어주도록 하고
+              인공지능을 사용하기 위한 시동어를 감지 하도록 함
+            </div>
+            <div className="">
+              - React-Query를 사용하여 서버와의 상태 관리하여 요리 사진을
+              과도하게 가져오지 않도록 캐싱함
+            </div>
+            <div>
+              - 직접 제작한 인공지능과 연결하기 위해 Recorder.js를 통해 사용자의
+              음성을 녹음하고 mp4 형태로 변형하여 백엔드에 전송
+            </div>
+            <div>
+              - 인공지능 학습을 위한 우분투, 아나콘다, 주피터 노트북 환경을 직접
+              구축하였으며 원격으로 접속하기 위한 SSH 포트 설정 및 포트포워딩
+              설정 함
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2022-07~2022-08
+        </div>
+        <section className="md:w-4/5 w-full">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5">ATTI</div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            깃허브:{" "}
+            <Link
+              href="https://github.com/TypingOK/ATTI"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+            {"  "} | 프로젝트 자세히보기(Notion):{"  "}
+            <Link
+              href="https://spectrum-bracket-f5c.notion.site/ATTI-2085e1ceee074415b77fa7fe7767d5b3"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+          </div>
+          <div className="md:ml-5 md:mt-3 md:w-11/12">
+            <div className="font-bold">
+              - WebRTC를 이용한 비대면 학습 사이트. 관리자 페이지의 시간표 생성,
+              시간표를 통한 강의장 입실 및 출석체크, 화상 수업, 채팅, 1대1
+              귓속말 등 화상 강의실 페이지 제작
+            </div>
+            <div className="">
+              - WebRTC를 구현한 OpenVidu 오픈소스 라이브러리를 이용하여
+              사용자들의 영상 및 음성, 채팅을 구현. 1대1 비공개 채팅을 구현
+              하였으며 질문 채팅을 하면 실제 질문 게시판에 업로드 되도록 연동.
+              수업하는 사람인 경우 익명모드를 활성화 할 수 있으며 학생은
+              익명모드를 요청할 수 있도록 구현
+            </div>
+            <div className="">
+              - 시간표를 통해 강의실을 입장하도록 하였으며 30분전에 입장하면
+              정상 출석, 수업 시간 이후에 출석하면 지각처리 하도록 함
+            </div>
+            <div>- 익명 모드시 채팅은 TTS를 통해 읽을 수 있도록 함</div>
+            <div>- Redux-Toolkit을 이용하여 사용자의 상태 관리를 하도록 함</div>
+            <div>- TypeScript를 사용하여 개발</div>
+          </div>
+        </section>
+      </div>
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2021-04~2021-07
+        </div>
+        <section className="md:w-4/5 w-full">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5">
+            StartPlayUp
+          </div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            깃허브:{" "}
+            <Link
+              href="https://github.com/StartPlayUp/startPlayUp"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+          </div>
+          <div className="md:ml-5 md:mt-3 md:w-11/12">
+            <div className="font-bold">
+              - WebRTC, React를 이용한 보드게임 웹사이트. 보드게임 Yhatzee 구현,
+              로그인 및 회원가입과 같은 회원 관리 기능 담당
+            </div>
+            <div className="">
+              - Context api를 사용하여 사용자의 상태를 관리하도록 함
+            </div>
+          </div>
+        </section>
+      </div>
       {/* Certificate */}
+      <section className="mt-5 md:mt-14 md:flex w-full">
+        <div className="md:w-1/5 md:text-end">
+          <h1 className="text-3xl md:text-end md:w-full font-extrabold text-etc-blue">
+            Certificate
+          </h1>
+        </div>
+      </section>
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">2023-06</div>
+        <section className="w-4/5">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5 md:w-11/12">
+            정보처리기사
+          </div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            발급처: 한국산업인력공단
+          </div>
+        </section>
+      </div>
       {/* Education */}
+      <section className="mt-5 md:mt-14 md:flex w-full">
+        <div className="md:w-1/5 md:text-end">
+          <h1 className="text-3xl md:text-end md:w-full font-extrabold text-etc-blue">
+            Education
+          </h1>
+        </div>
+      </section>
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2023-06~2023-08
+        </div>
+        <section className="md:w-4/5 w-full">
+          <div className="md:mt-2 w-full text-2xl font-extrabold md:ml-5 md:w-11/12">
+            10주 완성! 프로젝트 캠프 - React
+          </div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            웅진 씽크빅, Udemy, 청년 일경험 프로젝트로 진행한 React 부트캠프
+          </div>
+        </section>
+      </div>
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2022-01~2022-12
+        </div>
+        <section className="md:w-4/5 w-full">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5 md:w-11/12">
+            삼성청년SW아카데미 7기
+          </div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            삼성전자에서 진행하는 개발자 부트캠트. HTML, CSS, JavaScript,
+            Vue.js, Java, Spring Boot 뿐만 아니라 여러 팀 프로젝트와 알고리즘
+            문제 풀이 교육
+          </div>
+        </section>
+      </div>
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2016-03~2022-02
+        </div>
+        <section className="w-4/5">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5 md:w-11/12">
+            한신대학교
+          </div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            정보통신학부 전공 졸업
+          </div>
+        </section>
+      </div>
       {/* ETC */}
+      <section className="mt-5 md:mt-14 md:flex w-full">
+        <div className="md:w-1/5 md:text-end">
+          <h1 className="text-3xl md:text-end md:w-full font-extrabold text-etc-blue">
+            ETC
+          </h1>
+        </div>
+      </section>
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">2023-08</div>
+        <section className="w-4/5">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5 md:w-11/12">
+            10주 완성! 프로젝트 캠프 팀 프로젝트 최우수상
+          </div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            LMS 클래스룸 수강시스템 프로젝트
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
