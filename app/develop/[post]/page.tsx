@@ -30,6 +30,7 @@ export async function generateMetadata(
       title: true,
       tag: true,
       thumbnail: true,
+      description: true,
     },
   });
   if (post !== null) {
@@ -39,6 +40,10 @@ export async function generateMetadata(
       openGraph: {
         images: post.thumbnail,
       },
+      description:
+        post.description.split(" ").join("") === ""
+          ? "This is TypingOK's Blog! 이곳은 TypingOK의 블로그입니다! Next.js, React.js, TypeScript, 알고리즘 문제 등 여러가지 기술 혹은 잡담들을 나누기 위한 공간입니다."
+          : post.description,
     };
   } else {
     return {};

@@ -18,6 +18,7 @@ export async function POST(request: Request) {
         category: body.category,
         thumbnail: body.thumbnail,
         author: { connect: { email: session?.user?.email as string } },
+        description: body.description,
       },
     });
     return NextResponse.json(result);

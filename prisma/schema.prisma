@@ -21,6 +21,7 @@ model Post {
   createdAt DateTime @default(now()) @map(name:"created_at")
   updatedAt DateTime @updatedAt @map(name:"updated_at")
   tag       String[]
+  description String @default("")
   author User @relation(fields:[authorId],references:[id])
   authorId String
   category String

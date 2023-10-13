@@ -16,6 +16,7 @@ interface postType {
   email: string;
   category: string;
   thumbnail: string;
+  description: string;
 }
 const MdEditor = dynamic(() => import("../Editor/MdEditor"), {
   ssr: false,
@@ -36,6 +37,9 @@ const WritePost = () => {
   const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
   const [thumbnailPriview, setThumbnailPriview] = useState<string | null>(null);
   const thumbnailImage = useRef<HTMLInputElement>(null);
+  const [descriptionState, setDescriptionState] = useState<string>("");
+  const [descriptionLengthState, setDescriptionLengthState] =
+    useState<number>(0);
   const { data } = useSession();
 
   const [tag, setTag] = useState<String[]>([]);
@@ -52,6 +56,16 @@ const WritePost = () => {
       setTag((prev) => [...prev, tagRef.current.value]);
     }
   };
+
+  const tagDelete = (e: String) => {
+    const tagList = tag.filter((element) => {
+      return e !== element;
+    });
+    setTag((prev) => {
+      return [...tagList];
+    });
+  };
+
   useEffect(() => {
     if (tagRef && tagRef.current && tagRef.current.value) {
       tagRef.current.value = "";
@@ -65,9 +79,9 @@ const WritePost = () => {
         tag,
         category,
         thumbnail: thumbnailUrl,
+        description: descriptionState,
       } as postType;
       const result = await fetcher(body);
-      console.log(result);
       if (result.status === 200 && result.statusText === "OK") {
         router.push("/");
       }
@@ -137,15 +151,48 @@ const WritePost = () => {
         </>
       </div>
       <div className="mt-7">
-        태그 <input className="border-2 w-2/4 mr-4" ref={tagRef} />
+        태그{" "}
+        <input
+          className="border-2 w-2/4 mr-4"
+          ref={tagRef}
+          onKeyUp={(e) => {
+            if (e.key === "Enter") {
+              tagPush();
+            }
+          }}
+        />
         <button onClick={tagPush}>태그 추가하기</button>
       </div>
       <div>
         {tag.map((e, i) => (
-          <span key={i} className="ml-2">
+          <span
+            key={i}
+            onClick={() => {
+              tagDelete(e);
+            }}
+            className="ml-2"
+          >
             {e},
           </span>
         ))}
+      </div>
+      <div className="mt-7 mb-24">
+        <div>게시글에 대한 간단한 소개 (description)</div>
+        <div className="p-1 w-96 h-64">
+          <textarea
+            className="w-full h-full border-2 rounded-lg"
+            onChange={(e) => {
+              setDescriptionState((prev) => {
+                return e.target.value;
+              });
+
+              setDescriptionLengthState((prev) => {
+                return e.target.value.length;
+              });
+            }}
+          />
+          <div>{descriptionLengthState}/80</div>
+        </div>
       </div>
       <div className="mt-3 border-2">
         <div>섬네일 미리보기</div>
