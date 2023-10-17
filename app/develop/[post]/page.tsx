@@ -15,6 +15,20 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
+export async function generateStaticParams() {
+  const posts: { id: number }[] = await prisma.post.findMany({
+    where: {
+      published: true,
+    },
+    select: {
+      id: true,
+    },
+  });
+  return posts.map((e) => {
+    post: e.id;
+  });
+}
+
 export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
