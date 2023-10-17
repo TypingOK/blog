@@ -26,7 +26,7 @@ export async function generateStaticParams() {
   });
   console.log(posts);
   return posts.map((e) => ({
-    post: e.id,
+    post: String(e.id),
   }));
 }
 
