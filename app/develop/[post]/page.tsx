@@ -16,7 +16,7 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const posts:{id:number}[] = await fetch(
+  const posts: { id: number }[] = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/preBuildRoute`,
     { next: { tags: ["posts"] } }
   ).then((res) => res.json());

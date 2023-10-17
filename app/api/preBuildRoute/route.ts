@@ -3,6 +3,7 @@ import prisma from "@/src/lib/prisma";
 
 export async function GET(request: Request) {
   try {
+    console.log("1111111111111111111111111111111111111111111");
     const posts = await prisma.post.findMany({
       where: {
         published: true,
