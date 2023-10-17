@@ -16,7 +16,7 @@ export async function GET(request: Request) {
     if (posts) {
       return NextResponse.json(posts);
     } else {
-      return NextResponse.json({});
+      return NextResponse.json({ id: 0 });
     }
   } catch (error) {
     console.error(error);
