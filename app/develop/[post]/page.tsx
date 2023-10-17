@@ -15,11 +15,27 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
+// export async function generateStaticParams() {
+//   const posts: { id: number }[] = await fetch(
+//     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/preBuildRoute`,
+//     { next: { tags: ["posts"] } }
+//   ).then((res) => res.json());
+//   console.log("클라이언트측: ", posts);
+//   return posts.map((e) => ({
+//     post: String(e.id),
+//   }));
+// }
+export const revalidate = 3600;
 export async function generateStaticParams() {
-  const posts: { id: number }[] = await fetch(`/api/preBuildRoute`, {
-    next: { tags: ["posts"] },
-  }).then((res) => res.json());
-
+  const posts: { id: number }[] = await prisma.post.findMany({
+    where: {
+      published: true,
+    },
+    select: {
+      id: true,
+    },
+  });
+  console.log(posts);
   return posts.map((e) => ({
     post: String(e.id),
   }));
@@ -31,7 +47,6 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   // read route params
   const id = params.post;
-  console.log(params);
   const post = await prisma.post.findFirst({
     where: {
       AND: [{ id: parseInt(id) }, { published: true }],
