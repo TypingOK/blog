@@ -25,7 +25,8 @@ type Props = {
 //     post: String(e.id),
 //   }));
 // }
-export const revalidate = 3600;
+export const revalidate = 43200;
+
 export async function generateStaticParams() {
   const posts: { id: number }[] = await prisma.post.findMany({
     where: {

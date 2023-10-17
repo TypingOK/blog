@@ -2,11 +2,33 @@ import prisma from "@/src/lib/prisma";
 import { use } from "react";
 import Headline from "./Headline";
 
+// const getPost = async () => {
+//   const posts = await fetch(
+//     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/mainPostList`,
+//     { next: { tags: ["posts"] } }
+//   ).then((res) => res.json());
+//   return { posts };
+// };
+
 const getPost = async () => {
-  const posts = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/mainPostList`,
-    { next: { tags: ["posts"] } }
-  ).then((res) => res.json());
+  const posts = await prisma.post.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+    where: {
+      published: true,
+      // category: "develope",
+    },
+    select: {
+      id: true,
+      title: true,
+      createdAt: true,
+      thumbnail: true,
+    },
+    skip: 0,
+    take: 5,
+  });
+
   return { posts };
 };
 
@@ -29,4 +51,4 @@ const PostHeadlines = () => {
 
 export default PostHeadlines;
 
-export const revalidate = 3600 * 12;
+export const revalidate = 43200;
