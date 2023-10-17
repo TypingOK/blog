@@ -24,6 +24,7 @@ export async function generateStaticParams() {
       id: true,
     },
   });
+  console.log(posts);
   return posts.map((e) => ({
     post: e.id,
   }));
@@ -159,7 +160,7 @@ const getPreviousAndNextPosts = async ({ id }: { id: number }) => {
   };
 };
 
-const Post = async ({ params: { post } }: { params: { post: string } }) => {
+const Post = async ({ params: { post } }: Props) => {
   const { data } = await fetcher({ id: post });
   const { previousPost, nextPost } = await getPreviousAndNextPosts({
     id: parseInt(post),
