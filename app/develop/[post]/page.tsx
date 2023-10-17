@@ -24,9 +24,9 @@ export async function generateStaticParams() {
       id: true,
     },
   });
-  return posts.map((e) => {
-    post: e.id;
-  });
+  return posts.map((e) => ({
+    post: e.id,
+  }));
 }
 
 export async function generateMetadata(
