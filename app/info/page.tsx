@@ -65,7 +65,7 @@ const InfoPage = () => {
             진행하고 있습니다.
           </div>
           <br />
-          <div>
+          <div className="mt-10">
             <h1 className="text-xl font-bold">
               항상 새로운 것들을 시도하고자 노력해오고 있습니다.
             </h1>
@@ -76,7 +76,7 @@ const InfoPage = () => {
             만나더라도 당황하지 않고 빠르게 학습하고 적응할 수 있게 되었습니다.
           </div>
           <br />
-          <div>
+          <div className="mt-10">
             <h1 className="text-xl font-bold">
               함께 협업 하는 것을 좋아합니다.
             </h1>
@@ -90,7 +90,7 @@ const InfoPage = () => {
         </div>
       </div>
       {/* 기술 스택 부분 */}
-      <section className="mt-5 md:mt-14 md:flex w-full">
+      <section className="mt-5 md:mt-24 md:flex w-full">
         <div className="md:w-1/5 w-full md:text-end">
           <h1 className="text-3xl w-full md:text-end font-extrabold text-etc-blue">
             Tech Stack
@@ -108,7 +108,8 @@ const InfoPage = () => {
           아이콘은 문서를 보지 않고도 개발할 수 있음을 나타냅니다.
         </div>
       </section>
-      <section className="mt-2 md:flex w-full">
+
+      <section className="mt-5 md:flex w-full">
         <div className="md:text-end w-full md:w-48 text-xl font-bold">
           Front-End
         </div>
@@ -208,6 +209,7 @@ const InfoPage = () => {
         </div>
       </section>
       {/* 백엔드 */}
+      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
       <section className="mt-10 md:flex w-full">
         <div className="md:text-end w-full md:w-48 text-xl font-bold">
           Back-End, CI/CD
@@ -246,7 +248,7 @@ const InfoPage = () => {
         </div>
       </section>
       {/* Projects */}
-      <section className="mt-5 md:mt-14 md:flex w-full">
+      <section className="mt-5 md:mt-24 md:flex w-full">
         <div>
           <h1 className="text-3xl md:text-end w-48 font-extrabold text-etc-blue">
             Projects
@@ -262,7 +264,7 @@ const InfoPage = () => {
             <div className="md:mt-3 text-2xl font-extrabold md:ml-5 ">
               LMS 클래스룸 수강시스템
             </div>
-            <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+            <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
               배포 주소:{"  "}
               <Link
                 href="https://lms-a.sniperfactory.com/"
@@ -288,7 +290,7 @@ const InfoPage = () => {
                 바로가기(클릭)
               </Link>
             </div>
-            <div className="md:ml-5 md:mt-3">
+            <div className="md:ml-5 md:mt-3 leading-8">
               <div className="font-bold">
                 - 5개의 팀이 각자 기능을 만들고 합쳐 하나의 사이트를 완성하는
                 프로젝트
@@ -319,6 +321,8 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
+      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
+
       <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
           2023-05 ~
@@ -327,7 +331,7 @@ const InfoPage = () => {
           <div className="md:mt-2 text-2xl font-extrabold md:ml-5">
             Next.js 블로그 개발
           </div>
-          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+          <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
             배포 주소:{"  "}
             <Link
               href="https://blog-typingok.vercel.app/"
@@ -353,7 +357,7 @@ const InfoPage = () => {
               바로가기(클릭)
             </Link>
           </div>
-          <div className="md:ml-5 md:mt-3 md:w-11/12">
+          <div className="md:ml-5 md:mt-3 md:w-11/12  leading-8">
             <div className="font-bold">
               - 개발하고 공부한 내용을 정리하기 위해 만드는 블로그
             </div>
@@ -371,6 +375,8 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
+      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
+
       <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
           2023-03 ~ 2023-05
@@ -379,7 +385,7 @@ const InfoPage = () => {
           <div className="md:mt-2 text-2xl font-extrabold md:ml-5 md:w-11/12">
             BananVote
           </div>
-          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+          <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
             깃허브:{" "}
             <Link
               href="https://github.com/Cocktail-Masters/Banana-Vote-FE"
@@ -397,7 +403,7 @@ const InfoPage = () => {
               바로가기(클릭)
             </Link>
           </div>
-          <div className="md:ml-5 md:mt-3 text-bold">
+          <div className="md:ml-5 md:mt-3 text-bold  leading-8">
             <div className="font-bold">
               - 간편하게 투표하고 의견을 적을 수 있는 사이트. 투표 작성 페이지,
               이벤트 페이지, 마이페이지 담당하여 개발.
@@ -413,13 +419,14 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
+      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
       <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
           2022-12 ~ 2023-01
         </div>
         <section className="md:w-4/5 w-full">
           <div className="md:mt-2 text-2xl font-extrabold md:ml-5">Drawee</div>
-          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+          <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
             배포 주소:{"  "}
             <Link
               href="https://drawee.art/"
@@ -445,7 +452,7 @@ const InfoPage = () => {
               바로가기(클릭)
             </Link>
           </div>
-          <div className="md:ml-5 md:mt-3 md:w-11/12">
+          <div className="md:ml-5 md:mt-3 md:w-11/12  leading-8">
             <div className="font-bold">
               - WebRTC와 Next.js를 활용한 그림그리기 사이트. 모노레포를 이용하여
               게임 핵심 기능을 따로 관리함. 이어달리기 모드, 게임 결과 페이지,
@@ -465,6 +472,7 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
+      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
       <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
           2022-10~2022-11
@@ -473,7 +481,7 @@ const InfoPage = () => {
           <div className="md:mt-2 text-2xl font-extrabold md:ml-5">
             ⼤東HIP地圖
           </div>
-          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+          <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
             깃허브:{" "}
             <Link
               href="https://github.com/TypingOK/HipMap"
@@ -491,7 +499,7 @@ const InfoPage = () => {
               바로가기(클릭)
             </Link>
           </div>
-          <div className="md:ml-5 md:mt-3 md:w-11/12">
+          <div className="md:ml-5 md:mt-3 md:w-11/12 leading-8">
             <div className="font-bold">
               - 짧은 영상 혹은 사진과 함께 위치를 공유하여 자신만의 Hip한 공간을
               공유하는 SNS. 회원관리, 글작성, 쇼츠 영상 보기, 댓글 밑 대댓글
@@ -509,13 +517,14 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
+      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
       <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
           2022-08~2022-10
         </div>
         <section className="md:w-4/5 w-full">
           <div className="md:mt-2 text-2xl font-extrabold md:ml-5">RECEHFI</div>
-          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+          <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
             깃허브:{" "}
             <Link
               href="https://github.com/TypingOK/RECHEFI"
@@ -533,7 +542,7 @@ const InfoPage = () => {
               바로가기(클릭)
             </Link>
           </div>
-          <div className="md:ml-5 md:mt-3 md:w-11/12">
+          <div className="md:ml-5 md:mt-3 md:w-11/12 leading-8">
             <div className="font-bold">
               - 인공지능을 이용하여 레시피를 읽어주고 음성 명령을 내릴 수 있는
               요리 레시피 공유 사이트. 요리 레시피 읽어주기, 음성 명령 기능,
@@ -559,13 +568,14 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
+      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
       <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
           2022-07~2022-08
         </div>
         <section className="md:w-4/5 w-full">
           <div className="md:mt-2 text-2xl font-extrabold md:ml-5">ATTI</div>
-          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+          <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
             깃허브:{" "}
             <Link
               href="https://github.com/TypingOK/ATTI"
@@ -583,7 +593,7 @@ const InfoPage = () => {
               바로가기(클릭)
             </Link>
           </div>
-          <div className="md:ml-5 md:mt-3 md:w-11/12">
+          <div className="md:ml-5 md:mt-3 md:w-11/12 leading-8">
             <div className="font-bold">
               - WebRTC를 이용한 비대면 학습 사이트. 관리자 페이지의 시간표 생성,
               시간표를 통한 강의장 입실 및 출석체크, 화상 수업, 채팅, 1대1
@@ -606,6 +616,7 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
+      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
       <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
           2021-04~2021-07
@@ -614,7 +625,7 @@ const InfoPage = () => {
           <div className="md:mt-2 text-2xl font-extrabold md:ml-5">
             StartPlayUp
           </div>
-          <div className="md:ml-5 md:text-sm text-xs md:mt-0 mt-3">
+          <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
             깃허브:{" "}
             <Link
               href="https://github.com/StartPlayUp/startPlayUp"
@@ -624,7 +635,7 @@ const InfoPage = () => {
               바로가기(클릭)
             </Link>
           </div>
-          <div className="md:ml-5 md:mt-3 md:w-11/12">
+          <div className="md:ml-5 md:mt-3 md:w-11/12 leading-8">
             <div className="font-bold">
               - WebRTC, React를 이용한 보드게임 웹사이트. 보드게임 Yhatzee 구현,
               로그인 및 회원가입과 같은 회원 관리 기능 담당
@@ -635,6 +646,7 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
+      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
       {/* Certificate */}
       <section className="mt-5 md:mt-14 md:flex w-full">
         <div className="md:w-1/5 md:text-end">
@@ -654,8 +666,9 @@ const InfoPage = () => {
           </div>
         </section>
       </div>
+
       {/* Education */}
-      <section className="mt-5 md:mt-14 md:flex w-full">
+      <section className="mt-5 md:mt-24 md:flex w-full">
         <div className="md:w-1/5 md:text-end">
           <h1 className="text-3xl md:text-end md:w-full font-extrabold text-etc-blue">
             Education
@@ -704,7 +717,7 @@ const InfoPage = () => {
         </section>
       </div>
       {/* ETC */}
-      <section className="mt-5 md:mt-14 md:flex w-full">
+      <section className="mt-5 md:mt-24 md:flex w-full">
         <div className="md:w-1/5 md:text-end">
           <h1 className="text-3xl md:text-end md:w-full font-extrabold text-etc-blue">
             ETC

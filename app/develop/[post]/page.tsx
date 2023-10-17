@@ -16,15 +16,11 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const posts: { id: number }[] = await prisma.post.findMany({
-    where: {
-      published: true,
-    },
-    select: {
-      id: true,
-    },
-  });
-  console.log(posts);
+  const posts: { id: number }[] = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/preBuildRoute`,
+    { next: { tags: ["posts"] } }
+  ).then((res) => res.json());
+
   return posts.map((e) => ({
     post: String(e.id),
   }));
