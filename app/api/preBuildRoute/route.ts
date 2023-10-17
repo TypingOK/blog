@@ -11,7 +11,7 @@ export async function GET(request: Request) {
         id: true,
       },
     });
-    // console.log(posts);
+    console.log(posts);
 
     if (posts) {
       return NextResponse.json(posts);
