@@ -656,7 +656,7 @@ const InfoPage = () => {
         </div>
       </section>
       <div className="w-full flex flex-col md:flex-row">
-        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">2023-06</div>
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">2021-06</div>
         <section className="w-4/5">
           <div className="md:mt-2 text-2xl font-extrabold md:ml-5 md:w-11/12">
             정보처리기사
