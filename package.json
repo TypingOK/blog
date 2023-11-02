@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prisma:generate": "yarn pnpify prisma generate",
-    "prisma:push": "yarn pnpify prisma db push"
+    "prisma:push": "yarn pnpify prisma db push",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
@@ -35,6 +36,7 @@
     "lexical": "^0.12.2",
     "next": "13.4.3",
     "next-auth": "^4.22.1",
+    "next-sitemap": "^4.2.3",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
