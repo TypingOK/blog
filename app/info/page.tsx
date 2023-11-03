@@ -26,11 +26,11 @@ const InfoPage = () => {
             <div className="mt-2">
               Blog2:{" "}
               <Link
-                href="https://blog-typingok.vercel.app/"
+                href="https://www.typingok-blog.site"
                 className="underline"
                 target="_blank"
               >
-                https://blog-typingok.vercel.app/
+                https://www.typingok-blog.site
               </Link>
             </div>
             <div className="mt-2">
