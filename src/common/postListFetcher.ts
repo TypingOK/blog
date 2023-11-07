@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export const fetcher = async ({
   page,
   perPage,
@@ -10,8 +8,8 @@ export const fetcher = async ({
   const params = new URLSearchParams();
   params.append("page", page.toString());
   params.append("perPage", perPage.toString());
-  const posts = await axios(
+  const posts = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/develop?${params.toString()}`
-  );
-  return posts.data;
+  ).then((res) => res.json());
+  return posts;
 };

@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { ChangeEvent } from "react";
 import dynamic from "next/dynamic";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import imageCompression from "browser-image-compression";
 import uploadFirebase from "@/src/common/uploadFirebase";
@@ -23,8 +22,10 @@ const MdEditor = dynamic(() => import("../Editor/MdEditor"), {
 });
 
 const fetcher = async (body: postType) => {
-  const response = await axios.post("/api/create", body, {
+  const response = await fetch("/api/create", {
+    method: "POST",
     headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
   });
   return response;
 };

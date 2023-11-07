@@ -1,10 +1,7 @@
 "use client";
 import { fetcher } from "@/src/common/postListFetcher";
 import useIntersectionObserver from "@/src/hooks/useIntersectionObserver";
-import { PostsType } from "@/src/types/types";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Headline from "./Headlines/Headline";
 import useSWRInfinite from "swr/infinite";
 

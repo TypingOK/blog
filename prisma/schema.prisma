@@ -13,6 +13,13 @@ datasource db {
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
+model SubCategory {
+  id Int @default(autoincrement()) @id
+  name String
+  post Post[]
+  order Int @default(autoincrement())
+}
+
 model Post {
   id        Int     @default(autoincrement()) @id
   title     String
@@ -25,6 +32,8 @@ model Post {
   author User @relation(fields:[authorId],references:[id])
   authorId String
   category String
+  subCategory SubCategory @relation(fields:[subCategoryId],references:[id])
+  subCategoryId Int @default(1)
   thumbnail String
 }
 

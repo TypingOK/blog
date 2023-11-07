@@ -26,7 +26,6 @@
     "@yarnpkg/pnpify": "^4.0.0-rc.44",
     "add": "^2.0.6",
     "autoprefixer": "10.4.14",
-    "axios": "^1.4.0",
     "browser-image-compression": "^2.0.2",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",

@@ -1,54 +1,31 @@
-import prisma from "@/src/lib/prisma";
-import { use } from "react";
+"use client";
+import { fetcher } from "@/src/common/postListFetcher";
 import Headline from "./Headline";
-
-// const getPost = async () => {
-//   const posts = await fetch(
-//     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/mainPostList`,
-//     { next: { tags: ["posts"] } }
-//   ).then((res) => res.json());
-//   return { posts };
-// };
-
-const getPost = async () => {
-  const posts = await prisma.post.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-    where: {
-      published: true,
-      // category: "develope",
-    },
-    select: {
-      id: true,
-      title: true,
-      createdAt: true,
-      thumbnail: true,
-    },
-    skip: 0,
-    take: 5,
-  });
-
-  return { posts };
-};
+import useSWR from "swr";
 
 const PostHeadlines = () => {
-  const { posts } = use(getPost());
+  const { data } = useSWR(() => {
+    const page = 1;
+    const perPage = 5;
+    return { page, perPage };
+  }, fetcher);
+
   return (
     <div className="w-full h-full flex flex-wrap justify-center">
-      {posts &&
-        posts.map(
+      {data ? (
+        data.map(
           (e: {
             id: number;
             title: string;
             createdAt: Date;
             thumbnail: string;
           }) => <Headline post={e} key={e.id} />
-        )}
+        )
+      ) : (
+        <div>불러오는 중...</div>
+      )}
     </div>
   );
 };
 
 export default PostHeadlines;
-
-export const revalidate = 43200;
