@@ -7,8 +7,8 @@ const DeleteButton = ({ post, author }: { post: string; author: string }) => {
   const { data } = useSession();
 
   if (data?.user?.name === author) {
-    const deleteHandler = () => {
-      const result = fetch(
+    const deleteHandler = async () => {
+      const result = await fetch(
         process.env.NEXT_PUBLIC_BACKEND_URL +
           "/api/post?" +
           new URLSearchParams({

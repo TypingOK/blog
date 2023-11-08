@@ -1,5 +1,8 @@
 "use client";
 import useSWR from "swr";
+import SubCategoryAdd from "./Add";
+import { useSession } from "next-auth/react";
+import SubCategoryDeleteButton from "./Delete";
 
 const fetcher = async () => {
   const subCategory = await fetch(
@@ -10,14 +13,24 @@ const fetcher = async () => {
 
 const SubCategoryList = () => {
   const { data } = useSWR("/api/subCategory", fetcher);
-
+  const { data: userData } = useSession();
   console.log(data);
   return (
-    <div>
-      {data &&
-        data.map((e: { name: string }, i: number) => (
-          <div key={i}>{e.name}</div>
-        ))}
+    <div className="w-full">
+      <div className="w-full">
+        {data &&
+          data.map((e: { name: string; id: number }) => (
+            <div key={e.id} className="w-full flex">
+              <button>{e.name}</button>
+              {userData && userData.user && userData.user.email && (
+                <SubCategoryDeleteButton id={e.id} />
+              )}
+            </div>
+          ))}
+      </div>
+      <div className="w-full">
+        <SubCategoryAdd />
+      </div>
     </div>
   );
 };
