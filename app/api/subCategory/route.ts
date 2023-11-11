@@ -39,6 +39,21 @@ export async function POST(request: Request) {
   }
 }
 
+export async function PATCH(request: Request) {
+  const body = await request.json();
+  const session = await getServerSession(authOptions);
+  if (session !== null && session.user?.email === process.env.LOGIN_EMAIL) {
+    const result = await prisma.subCategory.update({
+      where: { id: body.id },
+      data: { name: body.name },
+    });
+
+    return NextResponse.json({ data: "Success!!" });
+  } else {
+    return NextResponse.json({ data: "error!" });
+  }
+}
+
 export async function PUT(request: Request) {
   const body = await request.json();
   const session = await getServerSession(authOptions);

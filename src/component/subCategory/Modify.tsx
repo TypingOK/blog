@@ -2,6 +2,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import SubCategoryDeleteButton from "./Delete";
 import { useSWRConfig } from "swr";
+import SubCategoryModifyName from "./ModifyName";
 
 const SubCategoryModify = ({
   subCategoryLists,
@@ -12,7 +13,14 @@ const SubCategoryModify = ({
 }) => {
   const [subCategory, setSubCategory] =
     useState<{ id: number; name: string; order: number }[]>(subCategoryLists);
+  const [subCategoryNameModify, setSubCategoryNameModify] = useState(false);
   const { mutate } = useSWRConfig();
+
+  const subCategoryNameModifyHandler = () => {
+    mutate("/api/subCategory");
+    setSubCategoryNameModify(false);
+  };
+
   const plusHandler = (id: number) => {
     const copySubCategory = [...subCategory];
     let index = 0;
@@ -80,7 +88,12 @@ const SubCategoryModify = ({
               >
                 ↓
               </button>
-              <div>{e.name}</div>
+              {}
+              <SubCategoryModifyName
+                id={e.id}
+                name={e.name}
+                subCategoryNameModifyHandler={subCategoryNameModifyHandler}
+              />
               <SubCategoryDeleteButton id={e.id} />
             </div>
           ))}

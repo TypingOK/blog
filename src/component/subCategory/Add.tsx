@@ -10,6 +10,14 @@ const SubCategoryAdd = () => {
   const categoryName = useRef<HTMLInputElement>(null);
   const { data: userData } = useSession();
   const addActiveHandler = () => {
+    if (
+      categoryName &&
+      categoryName.current &&
+      categoryName.current.value &&
+      categoryName.current.value.trim().length >= 0
+    ) {
+      categoryName.current.value = "";
+    }
     setAddActiveState((prev) => {
       return !prev;
     });
@@ -52,6 +60,7 @@ const SubCategoryAdd = () => {
           >
             추가
           </button>
+          <button onClick={addActiveHandler}>취소</button>
         </div>
       );
     }
