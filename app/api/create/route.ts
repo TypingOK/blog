@@ -20,6 +20,7 @@ export async function POST(request: Request) {
         thumbnail: body.thumbnail,
         author: { connect: { email: session?.user?.email as string } },
         description: body.description,
+        subCategory: { connect: { id: body.subCategory } },
       },
     });
     revalidateTag("posts");

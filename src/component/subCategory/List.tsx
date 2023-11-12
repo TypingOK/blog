@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import SubCategoryDeleteButton from "./Delete";
 import { useState } from "react";
 import SubCategoryModify from "./Modify";
+import Link from "next/link";
 
 const fetcher = async () => {
   const subCategory = await fetch(
@@ -18,6 +19,7 @@ const SubCategoryList = () => {
   const { data: userData } = useSession();
   const [modifyModeState, setModifyModeState] = useState(false);
   console.log(data);
+
   return (
     <div className="w-full">
       <div className="w-full">
@@ -25,7 +27,11 @@ const SubCategoryList = () => {
           !modifyModeState &&
           data.map((e: { name: string; id: number }) => (
             <div key={e.id} className="w-full flex">
-              <button>{e.name}</button>
+              <Link
+                href={{ pathname: "/develop", query: { subCategory: e.name } }}
+              >
+                {e.name}
+              </Link>
               {userData && userData.user && userData.user.email && (
                 <SubCategoryDeleteButton id={e.id} />
               )}

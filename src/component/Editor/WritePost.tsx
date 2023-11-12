@@ -1,5 +1,15 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import {
+  JSXElementConstructor,
+  Key,
+  PromiseLikeOfReactNode,
+  ReactElement,
+  ReactFragment,
+  ReactPortal,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import type { ChangeEvent } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
@@ -7,6 +17,7 @@ import imageCompression from "browser-image-compression";
 import uploadFirebase from "@/src/common/uploadFirebase";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import useSWR from "swr";
 
 interface postType {
   title: string;
@@ -16,6 +27,7 @@ interface postType {
   category: string;
   thumbnail: string;
   description: string;
+  subCategory: number;
 }
 const MdEditor = dynamic(() => import("../Editor/MdEditor"), {
   ssr: false,
@@ -30,8 +42,17 @@ const fetcher = async (body: postType) => {
   return response;
 };
 
+const subCategoryFetcher = async () => {
+  const subCategory = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/subCategory`
+  ).then((res) => res.json());
+  return subCategory;
+};
+
 const WritePost = () => {
   const router = useRouter();
+  const { data: subCategory } = useSWR("/api/subCategory", subCategoryFetcher);
+  const [subCategoryState, setSubCategoryState] = useState<number>();
   const [category, setCategory] = useState("develope");
   const [title, setTitle] = useState<String>("");
   const [thumbnail, setThumbnail] = useState<any>();
@@ -81,6 +102,7 @@ const WritePost = () => {
         category,
         thumbnail: thumbnailUrl,
         description: descriptionState,
+        subCategory: subCategoryState,
       } as postType;
       const result = await fetcher(body);
       if (result.status === 200 && result.statusText === "OK") {
@@ -92,6 +114,12 @@ const WritePost = () => {
   const categoryHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     if (e.target && e.target.value) {
       setCategory(e.target.value);
+    }
+  };
+  const subCategoryHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    if (e.target && e.target.value) {
+      setSubCategoryState(parseInt(e.target.value));
+      console.log("서브 카테고리", parseInt(e.target.value));
     }
   };
 
@@ -131,19 +159,33 @@ const WritePost = () => {
         제목 <input className="border-2 w-3/4" onChange={onChange} />
       </div>
       <div>
-        카테고리
-        <select
-          onChange={categoryHandler}
-          value={category}
-          className="border-2 mb-4"
-        >
-          <option value={"develope"} key={"develope"}>
-            develope
-          </option>
-          <option value={"etc"} key={"etc"}>
-            etc
-          </option>
-        </select>
+        <div>
+          카테고리
+          <select
+            onChange={categoryHandler}
+            value={category}
+            className="border-2 mb-4"
+          >
+            <option value={"develope"} key={"develope"}>
+              develope
+            </option>
+            <option value={"etc"} key={"etc"}>
+              etc
+            </option>
+          </select>
+        </div>
+        {subCategory && (
+          <div>
+            서브카테고리
+            <select onChange={subCategoryHandler} className="border-2 mb-4">
+              {subCategory.map((e: { id: number; name: string }) => (
+                <option key={e.id} value={e.id}>
+                  {e.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
       </div>
       <div className="w-full">
         <>

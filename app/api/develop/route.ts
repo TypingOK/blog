@@ -1,20 +1,33 @@
 import { NextResponse } from "next/server";
 import prisma from "@/src/lib/prisma";
 
+interface WhereCondition {
+  published: boolean;
+  category: string;
+  subCategory?: { name: string }; // 수정된 부분
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   try {
     const page = searchParams.get("page");
     const perPage = searchParams.get("perPage");
+    const subCategory = searchParams.get("subCategory");
+
+    const whereCondition: WhereCondition = {
+      published: true,
+      category: "develope",
+    };
+
+    if (subCategory) {
+      whereCondition.subCategory = { name: subCategory };
+    }
 
     const posts = await prisma.post.findMany({
       orderBy: {
         createdAt: "desc",
       },
-      where: {
-        published: true,
-        category: "develope",
-      },
+      where: whereCondition,
       select: {
         id: true,
         title: true,
@@ -33,6 +46,6 @@ export async function GET(request: Request) {
   } catch (error) {
     console.error(error);
 
-    return NextResponse.json({ error: "Internal server error" });
+    return NextResponse.json({ error: "내부 서버 오류" });
   }
 }
