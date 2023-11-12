@@ -46,16 +46,19 @@ const SubCategoryList = () => {
       </div>
       <div className="w-full flex flex-col">
         <SubCategoryAdd />
-        {!modifyModeState && (
-          <button
-            className="mt-3 w-full rounded-2xl bg-primary-400 text-primary-100"
-            onClick={() => {
-              setModifyModeState((prev) => !prev);
-            }}
-          >
-            수정
-          </button>
-        )}
+        {!modifyModeState &&
+          userData &&
+          userData.user &&
+          userData.user.email && (
+            <button
+              className="mt-3 w-full rounded-2xl bg-primary-400 text-primary-100"
+              onClick={() => {
+                setModifyModeState((prev) => !prev);
+              }}
+            >
+              수정
+            </button>
+          )}
       </div>
     </div>
   );
