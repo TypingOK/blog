@@ -21,7 +21,7 @@ const SubCategoryList = () => {
   console.log(data);
 
   return (
-    <div className="w-full">
+    <div className="w-full mt-3">
       <div className="w-full">
         {data &&
           !modifyModeState &&
