@@ -16,8 +16,35 @@ export async function GET(reqeust: Request) {
     },
   });
 
-  if (result) {
-    return NextResponse.json(result);
+  const subCategoryIds = result.map((subCategory) => subCategory.id);
+  
+  const postCounts = await prisma.post.groupBy({
+    by: ["subCategoryId"],
+    where: {
+      subCategoryId: {
+        in: subCategoryIds,
+      },
+    },
+    _count: {
+      subCategoryId: true,
+    },
+  });
+
+  const response = result.map((subCategory) => {
+    const postCount = postCounts.find(
+      (postCount) => postCount.subCategoryId === subCategory.id
+    );
+
+    const count = postCount ? postCount._count.subCategoryId : 0;
+
+    return {
+      ...subCategory,
+      postCount: count,
+    };
+  });
+
+  if (response) {
+    return NextResponse.json(response);
   } else {
     return NextResponse.json({ name: [] });
   }

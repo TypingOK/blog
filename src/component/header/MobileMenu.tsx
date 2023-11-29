@@ -41,7 +41,10 @@ const MobileHeaderMenu = () => {
             </div>
             <div className="border-secondary-400 mt-4 w-full border-t"></div>
             {params === "/develop" && (
-              <div className="w-full flex flex-col ml-4 mt-4">
+              <div
+                className="w-full flex flex-col ml-4 mt-4"
+                onClick={menuOpenHandler}
+              >
                 <div className="text-2xl font-bold">Category</div>
                 <SubCategoryList></SubCategoryList>
               </div>
