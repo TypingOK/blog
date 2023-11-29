@@ -17,7 +17,7 @@ const HomeBanner = ({
       >
         <div className="w-full h-full flex flex-col text-primary-100 justify-center">
           <div className="md:h-11 h-24 md:text-4xl font-extrabold md:ml-7 ml-2 text-xl">
-            프론트엔드 개발자
+            개발자
           </div>
           <div className="md:h-11 h-48 md:text-4xl font-extrabold md:ml-24 ml-3 text-xl">
             TypingOK의
