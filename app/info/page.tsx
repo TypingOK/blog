@@ -58,22 +58,22 @@ const InfoPage = () => {
             </h1>
             <br></br>
             대학에서 Java, 웹개발, 자료구조, 알고리즘 등 각종 전공 지식을
-            쌓았으며 졸업 논문으로 웹 개발 팀 프로젝트를 진행하였습니다. 이후 좀
-            더 웹 개발에 대해 깊게 알고 싶어 삼성청년SW아카데미에 들어가 HTML,
-            CSS, JS, JAVA, 알고리즘을 학습하였습니다. 또 Spring Boot, Vue.js를
-            활용하여 토이 프로젝트를 진행하였으며 여러 개인, 팀 프로젝트를
-            진행하고 있습니다.
+            쌓았으며 졸업 논문으로 웹 개발 팀 프 로젝트를 진행하였습니다. 이후
+            만든 것을 바로 활용해 볼 수 있고 사람들과 여러 상호작용을 하는
+            프론트엔드에 흥미를 느껴 여러 개인, 팀 프로젝트를 통해 많은 것들을
+            배우고 시도하면서 성장해오고 있습니다.
           </div>
           <br />
           <div className="mt-10">
             <h1 className="text-xl font-bold">
-              항상 새로운 것들을 시도하고자 노력해오고 있습니다.
+              새로운 기술을 지속적으로 시도합니다.
             </h1>
             <br />
-            개인 프로젝트나 팀 프로젝트에서 새로운 기술 스택을 사용하려고 해오고
-            있습니다. 이를 통해서 매번 바뀌는 개발의 흐름을 놓치지 않을 수
-            있었으며 지속적으로 노력하고 있습니다. 덕분에 새로운 기술스택을
-            만나더라도 당황하지 않고 빠르게 학습하고 적응할 수 있게 되었습니다.
+            프로젝트를 진행하면서 새로운 기술들을 도입 하고 공부하면서 성장하고
+            있습니다. 다만 기술들을 아무렇게나 선택하기보다는 신중하게 팀원들과
+            함께 이야기 하며 현재 프로젝트에 어울리는지 토론하고 결정 합니다.
+            또한 지속적으로 사후지원이 잘 되고 있는지 확인하며 문서나 사용자들이
+            얼마나 많은지 확인하여 사용합니다.
           </div>
           <br />
           <div className="mt-10">
@@ -256,6 +256,67 @@ const InfoPage = () => {
         </div>
       </section>
       <div className="w-full flex flex-col md:flex-row">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2023-08 ~ 현재
+        </div>
+        <section className="md:w-4/5">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5">
+            Next.js 블로그 개발
+          </div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
+            배포 주소:{"  "}
+            <Link
+              href="https://blog-typingok.vercel.app/"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+            {"  "} | 깃허브:{" "}
+            <Link
+              href="https://github.com/TypingOK/blog"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+            {"  "} | 프로젝트 자세히보기(Notion):{"  "}
+            <Link
+              href="https://spectrum-bracket-f5c.notion.site/Develop-Blog-5985e09e05094ac58b366109c6554b98?pvs=4"
+              target="_blank"
+              className="underline"
+            >
+              바로가기(클릭)
+            </Link>
+          </div>
+          <div className="md:ml-5 md:mt-3 md:w-11/12  leading-8">
+            <div className="font-bold">
+              - 개발하고 공부한 내용을 정리하기 위해 만드는 블로그
+            </div>
+            <div className="">
+              - Next.js App router를 사용하였으며, 프론트엔드 개발만으로 백엔드
+              개발 없이 직접 DB와 연결할 수 있도록 함.
+            </div>
+            <div className="">
+              - Vercel에서 지원하는 Postgresql을 사용하여 빠르게 DB를 구축 및
+              배포하였으며 Prisma를 사용하여 Next.js에서 접근
+            </div>
+            <div>- Vercel을 이용하여 CI&CD를 구현함</div>
+            <div>- Next auth를 이용하여 Github 로그인 구현</div>
+            <div>- Yarn berry를 이용하여 Zero Install 방식으로 모듈 관리</div>
+            <div>
+              - Lighthouse에서 모바일 기준 성능 98, 접근성 100, 권장사항 100,
+              검색엔진 최적화 92점을 받음
+            </div>
+            <div>
+              - Vercel Speed Insights에서 데스크탑 기준 99점, 모바일 기준
+              100점을 받음
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
+      <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold ml-3 md:w-1/5 text-end mt-3">
           2023-07~2023-08
         </div>
@@ -318,60 +379,6 @@ const InfoPage = () => {
                 플레이 시간 기록 기능을 구현함.
               </div>
             </div>
-          </div>
-        </section>
-      </div>
-      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
-
-      <div className="w-full flex flex-col md:flex-row">
-        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
-          2023-05 ~
-        </div>
-        <section className="md:w-4/5">
-          <div className="md:mt-2 text-2xl font-extrabold md:ml-5">
-            Next.js 블로그 개발
-          </div>
-          <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
-            배포 주소:{"  "}
-            <Link
-              href="https://blog-typingok.vercel.app/"
-              target="_blank"
-              className="underline"
-            >
-              바로가기(클릭)
-            </Link>
-            {"  "} | 깃허브:{" "}
-            <Link
-              href="https://github.com/TypingOK/blog"
-              target="_blank"
-              className="underline"
-            >
-              바로가기(클릭)
-            </Link>
-            {"  "} | 프로젝트 자세히보기(Notion):{"  "}
-            <Link
-              href="https://spectrum-bracket-f5c.notion.site/Develop-Blog-5985e09e05094ac58b366109c6554b98?pvs=4"
-              target="_blank"
-              className="underline"
-            >
-              바로가기(클릭)
-            </Link>
-          </div>
-          <div className="md:ml-5 md:mt-3 md:w-11/12  leading-8">
-            <div className="font-bold">
-              - 개발하고 공부한 내용을 정리하기 위해 만드는 블로그
-            </div>
-            <div className="">
-              - Next.js App router를 사용하였으며, 프론트엔드 개발만으로 백엔드
-              개발 없이 직접 DB와 연결할 수 있도록 함.
-            </div>
-            <div className="">
-              - Vercel에서 지원하는 Postgresql을 사용하여 빠르게 DB를 구축 및
-              배포하였으며 Prisma를 사용하여 Next.js에서 접근
-            </div>
-            <div>- Vercel을 이용하여 CI&CD를 구현함</div>
-            <div>- Next auth를 이용하여 Github 로그인 구현</div>
-            <div>- Yarn berry를 이용하여 Zero Install 방식으로 모듈 관리</div>
           </div>
         </section>
       </div>
