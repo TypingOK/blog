@@ -54,38 +54,35 @@ const InfoPage = () => {
         <div className="ml-0 md:ml-5 mt-2">
           <div>
             <h1 className="text-xl font-bold">
-              전공 및 프로젝트로 실력을 키우는 개발자
+              더 나은 답을 위해 고민 하는 개발자
             </h1>
             <br></br>
-            대학에서 Java, 웹개발, 자료구조, 알고리즘 등 각종 전공 지식을
-            쌓았으며 졸업 논문으로 웹 개발 팀 프 로젝트를 진행하였습니다. 이후
-            만든 것을 바로 활용해 볼 수 있고 사람들과 여러 상호작용을 하는
-            프론트엔드에 흥미를 느껴 여러 개인, 팀 프로젝트를 통해 많은 것들을
-            배우고 시도하면서 성장해오고 있습니다.
+            코드를 작성하고 고민합니다. 지금 작성한 코드가 최선인지 고민 합니다.
+            이를 통해 같은 로직이어도 더 나은 가독성을 위해 더 나은 효율을 위해
+            고민하고 개선하기 위해 노력합니다. 이를 위해 팀원들과 함께
+            코드리뷰도 진행하거나 직접 의견을 물어보기도 합니다.
           </div>
           <br />
           <div className="mt-10">
             <h1 className="text-xl font-bold">
-              새로운 기술을 지속적으로 시도합니다.
+              소통하는 개발자, 협업하는 개발자
             </h1>
-            <br />
-            프로젝트를 진행하면서 새로운 기술들을 도입 하고 공부하면서 성장하고
-            있습니다. 다만 기술들을 아무렇게나 선택하기보다는 신중하게 팀원들과
-            함께 이야기 하며 현재 프로젝트에 어울리는지 토론하고 결정 합니다.
-            또한 지속적으로 사후지원이 잘 되고 있는지 확인하며 문서나 사용자들이
-            얼마나 많은지 확인하여 사용합니다.
+            <br />팀 프로젝트를 진행하면서 주로 팀장을 맡아서 진행해왔습니다.
+            팀장을 맡으면서 중요하게 생각한 것은 소통이었습니다. 일정에 맞추기
+            위해 혹은 문제를 해결하기 위해 그리고 결정을 내리기 위해 최대한 많은
+            팀원들과 소통을 해왔습니다. 결과적으로 시간 내에 프로젝트를 훌륭하게
+            수행하여 부트캠프에서 최우수상을 수상하는 등, 소통과 협업으로 작업을
+            진행하고 우수한 성과를 도출 해왔습니다.
           </div>
           <br />
           <div className="mt-10">
-            <h1 className="text-xl font-bold">
-              함께 협업 하는 것을 좋아합니다.
-            </h1>
+            <h1 className="text-xl font-bold">도전하는 개발자</h1>
             <br />
-            특히 제가 과감하게 새로운 기술스택을 시도할 수 있었던 것은 항상
-            팀원들을 의지하고 신뢰하고 적극적으로 지지하기 때문입니다. 또한
-            프로젝트를 할 때 팀장을 주로 맡아왔으며 팀원들의 이야기를 많이
-            들어주고 문제를 해결하기 위해 함께 고민하면서 발전하고 성장 할 수
-            있었습니다.
+            새로운 기술 스택을 시도하는데 거리낌이 없습니다. 항상 새로운 기술
+            스택을 시도해보기 위해 팀원들과 함께 자료 조사하고 적용해보고
+            있습니다. 시행착오를 겪어오면서 저는 항상 성장하고 더 많은 것들을
+            시도하고자 합니다. 앞으로도 더 성장하기 위해 새로운 것들을 시도할 것
+            입니다.
           </div>
         </div>
       </div>
@@ -257,7 +254,43 @@ const InfoPage = () => {
       </section>
       <div className="w-full flex flex-col md:flex-row">
         <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
-          2023-08 ~ 현재
+          2024-01 ~ 현재
+        </div>
+        <section className="md:w-4/5">
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5">칠링</div>
+          <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
+            깃허브:{" "}
+            <Link
+              href="https://github.com/Project-Complete/Complete_FE"
+              target="_blank"
+              className="underline"
+            >
+              바로가기
+            </Link>
+          </div>
+          <div className="md:ml-5 md:mt-3 md:w-11/12  leading-8">
+            <div className="font-bold">
+              - 술을 리뷰하고 어떻게 마시면 좋을지 나누고 조합을 공유하는
+              커뮤니티
+            </div>
+            <div className="">
+              - Turbo Repo를 이용하여 패키지와 서비스용 웹 애플리케이션을 하나의
+              레포에서 관리하도록 함
+            </div>
+            <div className="">
+              - 헤드리스 UI 중 하나인 Manthin을 이용하여 개발
+            </div>
+            <div>- 디자인 시스템을 만들어 NPM 배포</div>
+            <div>
+              - NPM 제작을 위해 디자인 시스템은 React, Vite를 이용하여 개발
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className="mt-10 border-t mb-10 mr-10 ml-10 border-primary-300" />
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="font-bold md:ml-3 md:w-1/5 text-end mt-3">
+          2023-08 ~ 2023-12
         </div>
         <section className="md:w-4/5">
           <div className="md:mt-2 text-2xl font-extrabold md:ml-5">
@@ -270,7 +303,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
             {"  "} | 깃허브:{" "}
             <Link
@@ -278,7 +311,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
             {"  "} | 프로젝트 자세히보기(Notion):{"  "}
             <Link
@@ -286,7 +319,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
           </div>
           <div className="md:ml-5 md:mt-3 md:w-11/12  leading-8">
@@ -332,7 +365,7 @@ const InfoPage = () => {
                 target="_blank"
                 className="underline"
               >
-                바로가기(클릭)
+                바로가기
               </Link>
               {"  "} | 깃허브:{" "}
               <Link
@@ -340,7 +373,7 @@ const InfoPage = () => {
                 target="_blank"
                 className="underline"
               >
-                바로가기(클릭)
+                바로가기
               </Link>
               {"  "} | 프로젝트 자세히보기(Notion):{"  "}
               <Link
@@ -348,7 +381,7 @@ const InfoPage = () => {
                 target="_blank"
                 className="underline"
               >
-                바로가기(클릭)
+                바로가기
               </Link>
             </div>
             <div className="md:ml-5 md:mt-3 leading-8">
@@ -399,7 +432,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
             {"  "} | 프로젝트 자세히보기(Notion):{"  "}
             <Link
@@ -407,7 +440,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
           </div>
           <div className="md:ml-5 md:mt-3 text-bold  leading-8">
@@ -440,7 +473,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
             {"  "} | 깃허브:{" "}
             <Link
@@ -448,7 +481,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
             {"  "} | 프로젝트 자세히보기(Notion):{"  "}
             <Link
@@ -456,7 +489,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
           </div>
           <div className="md:ml-5 md:mt-3 md:w-11/12  leading-8">
@@ -495,7 +528,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
             {"  "} | 프로젝트 자세히보기(Notion):{"  "}
             <Link
@@ -503,7 +536,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
           </div>
           <div className="md:ml-5 md:mt-3 md:w-11/12 leading-8">
@@ -538,7 +571,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
             {"  "} | 프로젝트 자세히보기(Notion):{"  "}
             <Link
@@ -546,7 +579,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
           </div>
           <div className="md:ml-5 md:mt-3 md:w-11/12 leading-8">
@@ -589,7 +622,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
             {"  "} | 프로젝트 자세히보기(Notion):{"  "}
             <Link
@@ -597,7 +630,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
           </div>
           <div className="md:ml-5 md:mt-3 md:w-11/12 leading-8">
@@ -639,7 +672,7 @@ const InfoPage = () => {
               target="_blank"
               className="underline"
             >
-              바로가기(클릭)
+              바로가기
             </Link>
           </div>
           <div className="md:ml-5 md:mt-3 md:w-11/12 leading-8">
