@@ -278,7 +278,7 @@ const InfoPage = () => {
               레포에서 관리하도록 함
             </div>
             <div className="">
-              - 헤드리스 UI 중 하나인 Manthin을 이용하여 개발
+              - 헤드리스 UI 중 하나인 Mantine.dev을 이용하여 개발
             </div>
             <div>- 디자인 시스템을 만들어 NPM 배포</div>
             <div>
