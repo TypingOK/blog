@@ -257,7 +257,7 @@ const InfoPage = () => {
           2024-01 ~ 현재
         </div>
         <section className="md:w-4/5">
-          <div className="md:mt-2 text-2xl font-extrabold md:ml-5">칠링</div>
+          <div className="md:mt-2 text-2xl font-extrabold md:ml-5">찰랑</div>
           <div className="md:ml-5 md:text-sm text-xs md:mt-2 mt-3">
             깃허브:{" "}
             <Link
